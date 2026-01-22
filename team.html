@@ -37,6 +37,79 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
+<style>
+/* Founder Section */
+.founder-section {
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.founder-label {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #6c757d;
+}
+
+/* Card */
+.founder-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 40px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.08);
+}
+
+/* Image */
+.founder-image-wrap {
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+}
+
+.founder-image-wrap img {
+  max-width: 320px;
+  width: 100%;
+  border-radius: 20px;
+  transition: transform 0.4s ease;
+}
+
+.founder-image-wrap:hover img {
+  transform: scale(1.05);
+}
+
+/* Points */
+.founder-points {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.founder-points li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  font-size: 17px;
+  color: #444;
+}
+
+.founder-points li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #0d6efd;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .founder-card {
+    padding: 25px;
+  }
+}
+
+</style>
   </head>
 
   <body>
@@ -84,7 +157,7 @@
                 </div>
                 <div class="ms-2">
                   <h6 class="text-primary mb-0">Mail Us</h6>
-                  <span class="text-white">yashvisavaliya3436@gmail.com</span>
+                  <span class="text-white">info@ysify.in</span>
                 </div>
               </div>
             </div>
@@ -95,9 +168,7 @@
                 </div>
                 <div class="ms-2">
                   <h6 class="text-primary mb-0">Address</h6>
-                  <span class="text-white"
-                    >C 403 Radhe Residence ,Surat ,India</span
-                  >
+                 <span class="text-white">surat, gujarat, india</span>
                 </div>
               </div>
             </div>
@@ -116,7 +187,7 @@
         <nav
           class="navbar navbar-expand-lg bg-primary navbar-dark px-4 py-lg-0"
         >
-          <h4 class="d-lg-none m-0">Menu</h4>
+          <h4 class="d-lg-none m-0"></h4>
           <button
             type="button"
             class="navbar-toggler me-0"
@@ -148,190 +219,259 @@
               </div>
               <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
-            <div class="d-none d-lg-flex ms-auto">
-              <a class="btn btn-square btn-dark ms-2" href="#!"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a class="btn btn-square btn-dark ms-2" href="#!"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a class="btn btn-square btn-dark ms-2" href="#!"
-                ><i class="fab fa-youtube"></i
-              ></a>
-            </div>
+              <div class="d-flex">
+                    <a class="btn btn-square btn-outline-light me-2" href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-square btn-outline-light me-2" href="https://github.com/yashvi36" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                   <a class="btn btn-square btn-outline-light" href="https://www.instagram.com/ysify_solution/" target="_blank">
+    <i class="fab fa-instagram"></i>
+</a>
+
+                </div>
           </div>
         </nav>
       </div>
     </div>
     <!-- Navbar End -->
 
-    <!-- Founder Section Start -->
-    <div class="container-fluid py-5 bg-light">
-      <div class="container">
-        <!-- Heading -->
-        <div
-          class="text-center mx-auto mb-5 wow fadeIn"
-          data-wow-delay="0.1s"
-          style="max-width: 700px"
-        >
-          <p class="section-title bg-white text-center text-primary px-3">
-            Founder
-          </p>
-          <h1 class="display-5">Built & Managed by a Solo Founder</h1>
-        </div>
+      <!-- Founder Section Start -->
+<div class="container-fluid py-5 bg-light">
+  <div class="container">
 
-        <!-- Content -->
-        <div class="row align-items-center wow fadeIn" data-wow-delay="0.3s">
-          <!-- Image / Logo -->
-          <div class="col-lg-5 text-center mb-4 mb-lg-0">
-            <img
-              src="img/yashvi1.jpg"
-              class="img-fluid rounded shadow"
-              alt="Company Logo"
-              style="max-width: 320px"
-            />
-          </div>
-
-          <!-- Text -->
-          <div class="col-lg-7">
-            <h2 class="mb-3">Yashvi Savaliya</h2>
-            <h5 class="text-primary mb-4">Founder & Full-Stack Developer</h5>
-
-            <p class="fs-5">
-              I am a solo founder and full-stack developer with hands-on
-              experience in Python, .NET, databases, and modern web
-              technologies.
-            </p>
-
-            <p class="fs-5">
-              From idea validation and UI design to backend development,
-              deployment, and long-term maintenance — everything is handled
-              personally to ensure quality, accountability, and clear
-              communication.
-            </p>
-
-            <!-- Highlights -->
-            <ul class="fs-5 mb-4">
-              <li>End-to-end project ownership</li>
-              <li>Clean, scalable, and secure development</li>
-              <li>Direct communication — no middle layers</li>
-            </ul>
-
-            <!-- Actions -->
-            <div class="d-flex flex-wrap">
-              <a href="#contact" class="btn btn-primary py-3 px-4 me-3 mb-2">
-                Work With Me
-              </a>
-              <a
-                href="#projects"
-                class="btn btn-outline-primary py-3 px-4 mb-2"
-              >
-                View Projects
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Founder Section End -->
-
-    <!-- Newsletter Start -->
+    <!-- Heading -->
     <div
-      class="container-fluid bg-primary py-5 mt-5 wow fadeIn"
+      class="text-center mx-auto mb-5 wow fadeIn"
       data-wow-delay="0.1s"
+      style="max-width: 700px"
     >
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-7 text-center wow fadeIn" data-wow-delay="0.5s">
-            <h1 class="display-6 mb-4">Subscribe the Newsletter</h1>
-            <div class="position-relative w-100 mb-2">
-              <input
-                class="form-control border-0 w-100 ps-4 pe-5"
-                type="text"
-                placeholder="Enter Your Email"
-                style="height: 60px"
-              />
-              <button
-                type="button"
-                class="btn btn-lg-square shadow-none position-absolute top-0 end-0 mt-2 me-2"
-              >
-                <i class="fa fa-paper-plane text-primary fs-4"></i>
-              </button>
-            </div>
-            <p class="mb-0">Don't worry, we won't spam you with emails.</p>
-          </div>
+      <p class="section-title bg-white text-center text-primary px-3">
+        Leadership
+      </p>
+      <h1 class="display-5">
+        Founder-Led Engineering with Full Ownership
+      </h1>
+    </div>
+
+    <!-- Content -->
+    <div class="row align-items-center wow fadeIn" data-wow-delay="0.3s">
+
+      <!-- Image -->
+      <div class="col-lg-5 text-center mb-4 mb-lg-0">
+        <img
+          src="img/yashvi1.jpg"
+          class="img-fluid rounded shadow"
+          alt="Founder – Yashvi Savaliya"
+          style="max-width: 320px"
+        />
+      </div>
+
+      <!-- Text -->
+      <div class="col-lg-7">
+        <h2 class="mb-2">Yashvi Savaliya</h2>
+        <h5 class="text-primary mb-4">
+          Founder & Lead Software Engineer
+        </h5>
+
+        <p class="fs-5">
+          YSIFY is built and led by an experienced software engineer focused on
+          delivering high-quality, production-ready digital solutions. Every
+          project is approached with a strong emphasis on architecture,
+          scalability, and long-term maintainability.
+        </p>
+
+        <p class="fs-5">
+          From early-stage idea validation to system design, backend development,
+          cloud deployment, and ongoing support — projects are executed with
+          complete ownership, transparency, and direct accountability.
+        </p>
+
+        <!-- Highlights -->
+        <ul class="fs-5 mb-4">
+          <li>Founder-level involvement in every project</li>
+          <li>Clean architecture, secure systems, and scalable code</li>
+          <li>Direct communication and faster decision-making</li>
+        </ul>
+
+        <!-- Actions -->
+        <div class="d-flex flex-wrap">
+          <a href="contact.html" class="btn btn-primary py-3 px-4 me-3 mb-2">
+            Start a Project
+          </a>
+          <a
+            href="service.html"
+            class="btn btn-outline-primary py-3 px-4 mb-2"
+          >
+            View Work
+          </a>
         </div>
+
       </div>
     </div>
-    <!-- Newsletter End -->
+  </div>
+</div>
+<!-- Founder Section End -->
 
-    <!-- Footer Start -->
-    <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.1s">
-      <div class="container">
-        <div class="row g-5 py-5">
-          <!-- About -->
-          <div class="col-lg-4 col-md-6">
-            <h4 class="text-light mb-4">About Me</h4>
-            <p class="mb-3">
-              I am a solo developer focused on building clean, scalable, and
-              reliable digital solutions. Currently open for freelance and
-              project collaborations.
-            </p>
-            <div class="d-flex pt-3">
-              <a class="btn btn-square btn-primary me-2" href="#"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-              <a class="btn btn-square btn-primary me-2" href="#"
-                ><i class="fab fa-github"></i
-              ></a>
-              <a class="btn btn-square btn-primary me-2" href="#"
-                ><i class="fab fa-x-twitter"></i
-              ></a>
+
+
+    
+
+   <!-- Newsletter Start -->
+<div class="container-fluid bg-primary py-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 text-center wow fadeIn" data-wow-delay="0.5s">
+                <h1 class="display-6 mb-4">Subscribe to Our Newsletter</h1>
+
+                <div class="position-relative w-100 mb-2">
+                    <input
+                        id="newsletterEmail"
+                        class="form-control border-0 w-100 ps-4 pe-5"
+                        type="email"
+                        placeholder="Enter your email address"
+                        style="height: 60px;"
+                    />
+
+                    <button
+                        type="button"
+                        onclick="sendNewsletterEmail()"
+                        class="btn btn-lg-square shadow-none position-absolute top-0 end-0 mt-2 me-2">
+                        <i class="fa fa-paper-plane text-primary fs-4"></i>
+                    </button>
+                </div>
+
+                <p class="mb-0">We respect your inbox. No spam, ever.</p>
             </div>
-          </div>
+        </div>
+    </div>
+</div>
+<!-- Newsletter End -->
 
-          <!-- Quick Links -->
-          <div class="col-lg-4 col-md-6">
-            <h4 class="text-light mb-4">Quick Links</h4>
-            <a class="btn btn-link" href="#about">About</a>
-            <a class="btn btn-link" href="#services">Services</a>
-            <a class="btn btn-link" href="#projects">Projects</a>
-            <a class="btn btn-link" href="#contact">Contact</a>
-          </div>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-          <!-- Contact -->
-          <div class="col-lg-4 col-md-12">
-            <h4 class="text-light mb-4">Contact</h4>
-            <p class="mb-2">
-              <i class="fa fa-envelope me-3"></i>
-              yashvisavaliya3436@gmail.com
-            </p>
-            <p class="mb-2">
-              <i class="fa fa-globe me-3"></i>
-              Available Worldwide (Remote)
-            </p>
-            <p class="mb-0">
-              <i class="fa fa-clock me-3"></i>
-              Mon – Sun : 08:00 AM – 8:00 PM
-            </p>
-          </div>
+<script>
+(function () {
+  emailjs.init("plwxXwmIjqRkmoVP8"); // PUBLIC KEY
+})();
+
+function sendNewsletterEmail() {
+    const email = document.getElementById("newsletterEmail").value.trim();
+
+    if (!email || !email.includes("@")) {
+        alert("❌ Please enter a valid email address");
+        return;
+    }
+
+    emailjs.send(
+        "service_kriakco",
+        "template_m0q6e97", // ✅ YOUR TEMPLATE ID
+        {
+            email: email
+        }
+    )
+    .then(() => {
+        alert("✅ Successfully subscribed!");
+        document.getElementById("newsletterEmail").value = "";
+    })
+    .catch((error) => {
+        console.error("EmailJS Error:", error);
+        alert("❌ Subscription failed. Please try again.");
+    });
+}
+</script>
+
+
+
+
+  <!-- Footer Start -->
+<div class="container-fluid footer py-5 bg-dark text-light wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row g-5 py-4">
+
+            <!-- Brand / About -->
+            <div class="col-lg-4 col-md-6">
+                <h3 class="text-white mb-3">YSIFY</h3>
+                <p class="mb-3">
+                    Founder-led software studio building clean, scalable,
+                    and secure web & backend solutions for startups
+                    and growing businesses worldwide.
+                </p>
+                <p class="mb-4">
+                    <strong>Founder:</strong> Yashvi Savaliya
+                </p>
+
+                <div class="d-flex">
+                    <a class="btn btn-square btn-outline-light me-2" href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-square btn-outline-light me-2" href="https://github.com/yashvi36" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                   <a class="btn btn-square btn-outline-light" href="https://www.instagram.com/ysify_solution/" target="_blank">
+    <i class="fab fa-instagram"></i>
+</a>
+
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div class="col-lg-4 col-md-6">
+                <h4 class="text-white mb-3">What We Do</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-2">Custom Web Applications</li>
+                    <li class="mb-2">.NET & Python Backend Systems</li>
+                    <li class="mb-2">API Development & Integrations</li>
+                    <li class="mb-2">AI Automation & Agents</li>
+                    <li>Hosting & Deployment</li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-lg-4 col-md-12">
+                <h4 class="text-white mb-3">Contact</h4>
+               <p class="mb-2">
+    <i class="fa fa-envelope me-2"></i>
+    <a href="mailto:info@ysify.in" class="text-light me-2" style="cursor:pointer;">
+        info@ysify.in
+    </a>
+    |
+    <a href="mailto:yashvisavaliya3436@gmail.com" class="text-light ms-2" style="cursor:pointer;">
+        yashvisavaliya3436@gmail.com
+    </a>
+</p>
+
+                <p class="mb-2">
+                    <i class="fa fa-globe me-2"></i>
+                    Remote • Worldwide
+                </p>
+                <p class="mb-0">
+                    <i class="fa fa-clock me-2"></i>
+                    Mon – Sun | 8:00 AM – 8:00 PM
+                </p>
+            </div>
+
         </div>
 
-        <!-- Copyright -->
-        <div class="copyright pt-4">
-          <div class="row">
-            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-              &copy; <span class="fw-semi-bold">2025 Yashvi Savaliya</span>. All
-              Rights Reserved.
+        <hr class="border-secondary">
+
+        <!-- Bottom -->
+        <div class="row pt-3">
+            <div class="col-md-6 text-center text-md-start">
+                © 2025 <strong>YSIFY</strong>. All Rights Reserved.
             </div>
             <div class="col-md-6 text-center text-md-end">
-              Built with ❤️ by <span class="fw-semi-bold">Yashvi Savaliya</span>
+                Built & Managed by <strong>Founder, YSIFY — Yashvi Savaliya</strong>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-    <!-- Footer End -->
+</div>
+<!-- Footer End -->
+
+
+
 
     <!-- Back to Top -->
     <a href="#!" class="btn btn-lg btn-primary btn-lg-square back-to-top"

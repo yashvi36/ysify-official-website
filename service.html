@@ -30,6 +30,137 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+<style>
+.process-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.process-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 70px;
+}
+
+.process-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.process-card {
+    width: 380px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px;
+    text-align: center;
+
+    border-top: 6px solid transparent;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+
+    transition: 
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-top 0.3s ease;
+}
+
+.process-card:hover {
+    transform: translateY(-12px);
+    border-top: 6px solid #000;
+    box-shadow: 0 28px 60px rgba(0,0,0,0.18);
+}
+
+.process-card h5 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.process-card p {
+    font-size: 15px;
+    color: #666;
+}
+
+.process-arrow {
+    font-size: 34px;
+    color: #333;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .process-row,
+    .process-row.reverse {
+        flex-direction: column;
+    }
+
+    .process-arrow {
+        transform: rotate(90deg);
+    }
+}
+.info-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 35px 80px rgba(0,0,0,0.15);
+}
+
+.info-icon {
+    width: 60px;
+    height: 60px;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.info-card h4 {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-card ul li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 12px;
+    color: #555;
+}
+
+.info-card ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #000;
+    font-size: 14px;
+}
+
+.duration-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+}
+
+.duration-item:last-child {
+    border-bottom: none;
+}
+
+</style>
 </head>
 
 <body>
@@ -69,7 +200,7 @@
                             </div>
                             <div class="ms-2">
                                 <h6 class="text-primary mb-0">Mail Us</h6>
-                                <span class="text-white">yashvisavaliya3436@gmail.com</span>
+                                <span class="text-white">info@ysify.in</span>
                             </div>
                         </div>
                     </div>
@@ -80,8 +211,7 @@
                             </div>
                             <div class="ms-2">
                                 <h6 class="text-primary mb-0">Address</h6>
-                                <span class="text-white">C 403 Radhe Residence ,Surat ,India</span>
-                            </div>
+                                  <span class="text-white">surat, gujarat, india</span> </div>
                         </div>
                     </div>
                 </div>
@@ -96,7 +226,7 @@
     <div class="container-fluid bg-secondary px-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="nav-bar">
             <nav class="navbar navbar-expand-lg bg-primary navbar-dark px-4 py-lg-0">
-                <h4 class="d-lg-none m-0">Menu</h4>
+                <h4 class="d-lg-none m-0"></h4>
                 <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -119,119 +249,258 @@
                         </div>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
-                    <div class="d-none d-lg-flex ms-auto">
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-youtube"></i></a>
-                    </div>
+                      <div class="d-flex">
+                    <a class="btn btn-square btn-outline-light me-2" href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-square btn-outline-light me-2" href="https://github.com/yashvi36" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                   <a class="btn btn-square btn-outline-light" href="https://www.instagram.com/ysify_solution/" target="_blank">
+    <i class="fab fa-instagram"></i>
+</a>
+
+                </div>
                 </div>
             </nav>
         </div>
     </div>
     <!-- Navbar End -->
-
-<!-- Project Overview Start -->
+<!-- Solutions Start -->
 <div class="container py-5">
+    
+    <!-- Header -->
     <div class="text-center mb-5">
-        <h1 class="display-6">Service</h1>
+      
+        <h1 class="display-6 mb-3">Real-World Software Solutions</h1>
         <p class="fs-5 text-muted">
-            We build real-world software solutions using modern web technologies
-            with a strong backend and scalable architecture.
+            We design and develop production-ready applications with
+            strong backend architecture and scalable systems.
         </p>
     </div>
 
+    <!-- Cards -->
     <div class="row g-4">
-        <div class="col-md-4">
-            <div class="service-item h-100">
-                <i class="fa fa-cart-shopping fa-2x text-secondary mb-3"></i>
-                <h4>E-Commerce Platform</h4>
-                <p>
-                    A complete online shopping system with product management,
-                    cart, orders and secure payment flow.
+
+        <!-- Card 1 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-1 shadow-sm p-4 text-center">
+                <div class="mb-3">
+                    <i class="fa fa-cart-shopping fa-2x text-primary"></i>
+                </div>
+                <h4 class="mb-3">E-Commerce Systems</h4>
+                <p class="text-muted mb-4">
+                    End-to-end e-commerce platforms including product management,
+                    cart, orders, payments, and admin dashboards.
                 </p>
+                <span class="text-primary fw-semibold">
+                    Web • Payments • Admin
+                </span>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="service-item h-100">
-                <i class="fa fa-server fa-2x text-secondary mb-3"></i>
-                <h4>Python Backend</h4>
-                <p>
-                    Powerful backend using Python with APIs, authentication,
-                    database management and security.
+        <!-- Card 2 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-1 shadow-sm p-4 text-center">
+                <div class="mb-3">
+                    <i class="fa fa-server fa-2x text-primary"></i>
+                </div>
+                <h4 class="mb-3">Backend & API Development</h4>
+                <p class="text-muted mb-4">
+                    Secure and scalable backend systems using Python and .NET
+                    with authentication, APIs, and database integration.
                 </p>
+                <span class="text-primary fw-semibold">
+                    Python • .NET • REST APIs
+                </span>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="service-item h-100">
-                <i class="fa fa-palette fa-2x text-secondary mb-3"></i>
-                <h4>Modern UI Design</h4>
-                <p>
-                    Clean, responsive and user-friendly web design inspired by
-                    professional templates.
+        <!-- Card 3 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-1 shadow-sm p-4 text-center">
+                <div class="mb-3">
+                    <i class="fa fa-laptop-code fa-2x text-primary"></i>
+                </div>
+                <h4 class="mb-3">Custom Web Applications</h4>
+                <p class="text-muted mb-4">
+                    Tailored web applications built to solve specific business
+                    problems with clean architecture and scalability.
                 </p>
+                <span class="text-primary fw-semibold">
+                    Full-Stack • Scalable
+                </span>
             </div>
         </div>
+
+        <!-- Card 4 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-1 shadow-sm p-4 text-center">
+                <div class="mb-3">
+                    <i class="fa fa-robot fa-2x text-primary"></i>
+                </div>
+                <h4 class="mb-3">AI Automation</h4>
+                <p class="text-muted mb-4">
+                    Smart automation solutions to reduce manual work
+                    and optimize workflows using AI-powered logic.
+                </p>
+                <span class="text-primary fw-semibold">
+                    AI • Automation
+                </span>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-1 shadow-sm p-4 text-center">
+                <div class="mb-3">
+                    <i class="fa fa-palette fa-2x text-primary"></i>
+                </div>
+                <h4 class="mb-3">Modern UI / UX</h4>
+                <p class="text-muted mb-4">
+                    Clean, responsive, and user-friendly interfaces
+                    designed for performance and usability.
+                </p>
+                <span class="text-primary fw-semibold">
+                    Responsive • Clean UI
+                </span>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-1 shadow-sm p-4 text-center">
+                <div class="mb-3">
+                    <i class="fa fa-cloud fa-2x text-primary"></i>
+                </div>
+                <h4 class="mb-3">Deployment & Hosting</h4>
+                <p class="text-muted mb-4">
+                    Application deployment, hosting setup, and production
+                    support for smooth and reliable launches.
+                </p>
+                <span class="text-primary fw-semibold">
+                    Cloud • Production Ready
+                </span>
+            </div>
+        </div>
+
     </div>
 </div>
-<!-- Project Overview End -->
-<!-- Project Workflow Start -->
-<div class="container-fluid bg-light py-5">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h1 class="display-6">How The Project Works</h1>
-        </div>
-
-        <div class="row g-4 text-center">
-            <div class="col-md-3">
-                <i class="fa fa-lightbulb fa-2x text-primary mb-3"></i>
-                <h5>Planning</h5>
-                <p>Understanding requirements and designing project structure.</p>
-            </div>
-            <div class="col-md-3">
-                <i class="fa fa-code fa-2x text-primary mb-3"></i>
-                <h5>Development</h5>
-                <p>Frontend + backend development using modern technologies.</p>
-            </div>
-            <div class="col-md-3">
-                <i class="fa fa-bug fa-2x text-primary mb-3"></i>
-                <h5>Testing</h5>
-                <p>Security, performance and functionality testing.</p>
-            </div>
-            <div class="col-md-3">
-                <i class="fa fa-rocket fa-2x text-primary mb-3"></i>
-                <h5>Deployment</h5>
-                <p>Project launch with optimization and future scalability.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Project Workflow End -->
-<!-- Terms & Duration Start -->
+<!-- Solutions End -->
+<!-- Process Section Start -->
 <div class="container py-5">
-    <div class="row g-5 align-items-center">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">How We Work</h2>
+        <p class="text-muted fs-5">
+            A structured workflow that ensures clarity, quality, and delivery.
+        </p>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="process-row">
+        <div class="process-card">
+            <img src="img/process-1.jpg" alt="">
+            <h5>Start Project</h5>
+            <p>Requirement discussion, approval, and scope finalization.</p>
+        </div>
+        <div class="process-arrow">→</div>
+        <div class="process-card">
+            <img src="img/process-2.jpg" alt="">
+            <h5>Planning</h5>
+            <p>Timeline planning, architecture design, and workflow setup.</p>
+        </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="process-row reverse">
+        <div class="process-card">
+            <img src="img/process-3.jpg" alt="">
+            <h5>Development</h5>
+            <p>Frontend + backend development with secure APIs.</p>
+        </div>
+        <div class="process-arrow">→</div>
+        <div class="process-card">
+            <img src="img/process-4.jpg" alt="">
+            <h5>Testing</h5>
+            <p>Performance, security, and functionality testing.</p>
+        </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="process-row">
+        <div class="process-card">
+            <img src="img/process-5.jpg" alt="">
+            <h5>Deployment</h5>
+            <p>Live deployment with monitoring and optimization.</p>
+        </div>
+        <div class="process-arrow">→</div>
+        <div class="process-card">
+            <img src="img/process-6.jpg" alt="">
+            <h5>Support</h5>
+            <p>Ongoing support, maintenance, and future scaling.</p>
+        </div>
+    </div>
+</div>
+<!-- Process Section End -->
+
+
+<<!-- Terms & Duration Start -->
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-6">Project Terms & Timeline</h1>
+        <p class="text-muted fs-5">
+            Clear expectations, transparent process, and realistic delivery timelines.
+        </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+        <!-- Terms Card -->
         <div class="col-md-6">
-            <h2>Project Terms & Conditions</h2>
-            <ul class="fs-5">
-                <li>Project timeline depends on requirements</li>
-                <li>Payment milestones based on development phases</li>
-                <li>Source code confidentiality guaranteed</li>
-                <li>Post-delivery support available</li>
-            </ul>
+            <div class="info-card h-100">
+                <div class="info-icon">
+                    <i class="fa fa-file-contract"></i>
+                </div>
+                <h4>Project Terms</h4>
+
+                <ul>
+                    <li>Flexible timeline based on project scope</li>
+                    <li>Milestone-based payment structure</li>
+                    <li>100% source code confidentiality</li>
+                    <li>Post-delivery support & maintenance</li>
+                </ul>
+            </div>
         </div>
 
+        <!-- Duration Card -->
         <div class="col-md-6">
-            <h2>Estimated Time Duration</h2>
-            <p class="fs-5">
-                ⏱️ <strong>Basic Project:</strong> 2-3 Weeks <br>
-                ⏱️ <strong>Medium Project:</strong> 1-1.5 Month <br>
-                ⏱️ <strong>Advanced Project:</strong> 2-3 Months
-            </p>
+            <div class="info-card h-100">
+                <div class="info-icon">
+                    <i class="fa fa-clock"></i>
+                </div>
+                <h4>Estimated Duration</h4>
+
+                <div class="duration-item">
+                    <strong>Basic Project</strong>
+                    <span>2 – 3 Weeks</span>
+                </div>
+
+                <div class="duration-item">
+                    <strong>Medium Project</strong>
+                    <span>1 – 1.5 Months</span>
+                </div>
+
+                <div class="duration-item">
+                    <strong>Advanced Project</strong>
+                    <span>2 – 3 Months</span>
+                </div>
+            </div>
         </div>
+
     </div>
 </div>
 <!-- Terms & Duration End -->
+
 
 <!-- Contact CTA Start -->
 <div class="container-fluid bg-primary py-5 text-center">
@@ -246,68 +515,91 @@
 
     
 
-   <!-- Footer Start -->
-<div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.1s">
+ 
+  <!-- Footer Start -->
+<div class="container-fluid footer py-5 bg-dark text-light wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
-        <div class="row g-5 py-5">
+        <div class="row g-5 py-4">
 
-            <!-- About -->
+            <!-- Brand / About -->
             <div class="col-lg-4 col-md-6">
-                <h4 class="text-light mb-4">About Me</h4>
+                <h3 class="text-white mb-3">YSIFY</h3>
                 <p class="mb-3">
-                    I am a solo developer focused on building clean,
-                    scalable, and reliable digital solutions.
-                    Currently open for freelance and project collaborations.
+                    Founder-led software studio building clean, scalable,
+                    and secure web & backend solutions for startups
+                    and growing businesses worldwide.
                 </p>
-                <div class="d-flex pt-3">
-                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-github"></i></a>
-                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-x-twitter"></i></a>
+                <p class="mb-4">
+                    <strong>Founder:</strong> Yashvi Savaliya
+                </p>
+
+                <div class="d-flex">
+                    <a class="btn btn-square btn-outline-light me-2" href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-square btn-outline-light me-2" href="https://github.com/yashvi36" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                   <a class="btn btn-square btn-outline-light" href="https://www.instagram.com/ysify_solution/" target="_blank">
+    <i class="fab fa-instagram"></i>
+</a>
+
                 </div>
             </div>
 
-            <!-- Quick Links -->
+            <!-- Services -->
             <div class="col-lg-4 col-md-6">
-                <h4 class="text-light mb-4">Quick Links</h4>
-                <a class="btn btn-link" href="#about">About</a>
-                <a class="btn btn-link" href="#services">Services</a>
-                <a class="btn btn-link" href="#projects">Projects</a>
-                <a class="btn btn-link" href="#contact">Contact</a>
+                <h4 class="text-white mb-3">What We Do</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-2">Custom Web Applications</li>
+                    <li class="mb-2">.NET & Python Backend Systems</li>
+                    <li class="mb-2">API Development & Integrations</li>
+                    <li class="mb-2">AI Automation & Agents</li>
+                    <li>Hosting & Deployment</li>
+                </ul>
             </div>
 
             <!-- Contact -->
             <div class="col-lg-4 col-md-12">
-                <h4 class="text-light mb-4">Contact</h4>
+                <h4 class="text-white mb-3">Contact</h4>
+               <p class="mb-2">
+    <i class="fa fa-envelope me-2"></i>
+    <a href="mailto:info@ysify.in" class="text-light me-2" style="cursor:pointer;">
+        info@ysify.in
+    </a>
+    |
+    <a href="mailto:yashvisavaliya3436@gmail.com" class="text-light ms-2" style="cursor:pointer;">
+        yashvisavaliya3436@gmail.com
+    </a>
+</p>
+
                 <p class="mb-2">
-                    <i class="fa fa-envelope me-3"></i>
-                    yashvisavaliya3436@gmail.com
-                </p>
-                <p class="mb-2">
-                    <i class="fa fa-globe me-3"></i>
-                    Available Worldwide (Remote)
+                    <i class="fa fa-globe me-2"></i>
+                    Remote • Worldwide
                 </p>
                 <p class="mb-0">
-                    <i class="fa fa-clock me-3"></i>
-                    Mon – Sun : 08:00 AM – 8:00 PM
+                    <i class="fa fa-clock me-2"></i>
+                    Mon – Sun | 8:00 AM – 8:00 PM
                 </p>
             </div>
 
         </div>
 
-        <!-- Copyright -->
-        <div class="copyright pt-4">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <span class="fw-semi-bold">2025 Yashvi Savaliya</span>. All Rights Reserved.
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    Built with ❤️ by <span class="fw-semi-bold">Yashvi Savaliya</span>
-                </div>
+        <hr class="border-secondary">
+
+        <!-- Bottom -->
+        <div class="row pt-3">
+            <div class="col-md-6 text-center text-md-start">
+                © 2025 <strong>YSIFY</strong>. All Rights Reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                Built & Managed by <strong>Founder, YSIFY — Yashvi Savaliya</strong>
             </div>
         </div>
     </div>
 </div>
 <!-- Footer End -->
+
 
 
     <!-- Back to Top -->

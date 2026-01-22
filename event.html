@@ -30,6 +30,101 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+<style>
+/* Modal Styling */
+.offer-modal {
+    border-radius: 18px;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.2);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.offer-modal.animate {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Icon */
+.offer-icon {
+    width: 55px;
+    height: 55px;
+    background: #000;
+    color: #fff;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+/* Intro text */
+.offer-intro {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Details list */
+.offer-details ul {
+    padding-left: 0;
+}
+
+.offer-details li {
+    list-style: none;
+    padding: 10px 0;
+    padding-left: 28px;
+    position: relative;
+    font-size: 16px;
+    color: #333;
+}
+
+.offer-details li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: #0d6efd;
+    font-weight: 600;
+}
+.offer-card {
+    background: #fff;
+    padding: 35px 30px;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    transition: all 0.35s ease;
+    height: 100%;
+    position: relative;
+}
+
+.offer-card i {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.offer-card h4 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.offer-card p {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.offer-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.15);
+}
+
+.offer-card:hover i {
+    color: #22be5992;
+}
+
+
+</style>
 </head>
 
 <body>
@@ -69,7 +164,7 @@
                             </div>
                             <div class="ms-2">
                                 <h6 class="text-primary mb-0">Mail Us</h6>
-                                <span class="text-white">yashvisavaliya3436@gmail.com</span>
+                                <span class="text-white">info@ysify.in</span>
                             </div>
                         </div>
                     </div>
@@ -80,7 +175,7 @@
                             </div>
                             <div class="ms-2">
                                 <h6 class="text-primary mb-0">Address</h6>
-                                <span class="text-white">C 403 Radhe Residence ,Surat ,India</span>
+                                <span class="text-white">surat, gujarat, india</span>
                             </div>
                         </div>
                     </div>
@@ -95,7 +190,7 @@
     <div class="container-fluid bg-secondary px-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="nav-bar">
             <nav class="navbar navbar-expand-lg bg-primary navbar-dark px-4 py-lg-0">
-                <h4 class="d-lg-none m-0">Menu</h4>
+                <h4 class="d-lg-none m-0"></h4>
                 <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -118,86 +213,207 @@
                         </div>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
-                    <div class="d-none d-lg-flex ms-auto">
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-youtube"></i></a>
-                    </div>
+                      <div class="d-flex">
+                    <a class="btn btn-square btn-outline-light me-2" href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-square btn-outline-light me-2" href="https://github.com/yashvi36" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                   <a class="btn btn-square btn-outline-light" href="https://www.instagram.com/ysify_solution/" target="_blank">
+    <i class="fab fa-instagram"></i>
+</a>
+
+                </div>
                 </div>
             </nav>
         </div>
     </div>
     <!-- Navbar End -->
+<!-- Project Offers Start -->
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <span class="process-label">PROJECT OFFERS</span>
+        <h1 class="display-6">Services We Specialize In</h1>
+        <p class="fs-5 text-muted">
+            High-quality development services focused on performance,
+            scalability, and real business value.
+        </p>
+    </div>
 
-<!-- Services Start -->
-<div class="container-fluid py-5">
-    <div class="container">
-        <div class="text-center mx-auto wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
-            <p class="section-title bg-white text-center text-primary px-3">Services</p>
-            <h1 class="display-6 mb-4">What I Offer</h1>
-            <p class="fs-5">
-                End-to-end development services designed to turn your ideas
-                into reliable and scalable digital products.
-            </p>
+    <div class="row g-4">
+
+        <!-- Card -->
+        <div class="col-md-6 col-lg-4">
+            <div class="offer-card">
+                <i class="fa fa-globe"></i>
+                <h4>Web Development</h4>
+                <p>Modern, responsive, and scalable web applications.</p>
+                <button class="btn btn-outline-dark"
+                    onclick="openOffer('Web Development', `
+                    <li>Business websites & dashboards</li>
+                    <li>Responsive UI / UX</li>
+                    <li>Secure backend architecture</li>
+                    <li>SEO & performance optimized</li>
+                    `)">
+                    View Details
+                </button>
+            </div>
         </div>
 
-        <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+            <div class="offer-card">
+                <i class="fa fa-code"></i>
+                <h4>Software Development</h4>
+                <p>Custom software tailored to your business needs.</p>
+                <button class="btn btn-outline-dark"
+                    onclick="openOffer('Software Development', `
+                    <li>Custom business systems</li>
+                    <li>Desktop & web software</li>
+                    <li>Secure & scalable architecture</li>
+                    <li>Long-term maintainability</li>
+                    `)">
+                    View Details
+                </button>
+            </div>
+        </div>
 
-            <!-- Service 1 -->
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
-                <div class="event-item h-100 p-4 text-center">
-                    <i class="fa fa-laptop-code fa-3x text-primary mb-3"></i>
-                    <h3>Web Application Development</h3>
-                    <p>
-                        Custom web applications using modern technologies
-                        tailored to your business needs.
-                    </p>
-                    <div class="bg-light p-4 mt-3">
-                        <p class="mb-1"><i class="fa fa-check text-primary me-2"></i>Frontend & Backend</p>
-                        <p class="mb-1"><i class="fa fa-check text-primary me-2"></i>Secure & Scalable</p>
-                        <p class="mb-0"><i class="fa fa-check text-primary me-2"></i>Production Ready</p>
+        <div class="col-md-6 col-lg-4">
+            <div class="offer-card">
+                <i class="fa fa-robot"></i>
+                <h4>AI Automation</h4>
+                <p>Automate workflows using AI-powered logic.</p>
+                <button class="btn btn-outline-dark"
+                    onclick="openOffer('AI Automation', `
+                    <li>Workflow automation</li>
+                    <li>AI-based decision systems</li>
+                    <li>Time & cost reduction</li>
+                    <li>Custom automation logic</li>
+                    `)">
+                    View Details
+                </button>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="offer-card">
+                <i class="fa fa-brain"></i>
+                <h4>AI Agent Development</h4>
+                <p>Custom AI agents built for real-world tasks.</p>
+                <button class="btn btn-outline-dark"
+                    onclick="openOffer('AI Agent Development', `
+                    <li>Autonomous AI agents</li>
+                    <li>Task-based AI workflows</li>
+                    <li>LLM & API integration</li>
+                    <li>Business-focused AI</li>
+                    `)">
+                    View Details
+                </button>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="offer-card">
+                <i class="fa fa-plug"></i>
+                <h4>API Integration</h4>
+                <p>Reliable integrations between systems.</p>
+                <button class="btn btn-outline-dark"
+                    onclick="openOffer('API Integration', `
+                    <li>Third-party API integration</li>
+                    <li>Payment gateways</li>
+                    <li>Secure data exchange</li>
+                    <li>System synchronization</li>
+                    `)">
+                    View Details
+                </button>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="offer-card">
+                <i class="fa fa-server"></i>
+                <h4>Python / .NET / Node.js</h4>
+                <p>Backend systems with proven technologies.</p>
+                <button class="btn btn-outline-dark"
+                    onclick="openOffer('Backend Development', `
+                    <li>Python, .NET & Node.js</li>
+                    <li>High-performance APIs</li>
+                    <li>Secure databases</li>
+                    <li>Production-ready systems</li>
+                    `)">
+                    View Details
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Project Offers End -->
+
+
+
+<!-- Offer Modal -->
+<!-- Offer Modal -->
+<div class="modal fade" id="offerModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content offer-modal">
+
+            <div class="modal-header border-0">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="offer-icon">
+                        <i class="fa fa-layer-group"></i>
+                    </div>
+                    <div>
+                        <h4 class="modal-title mb-0" id="offerTitle"></h4>
+                        <small class="text-muted">Service Overview</small>
                     </div>
                 </div>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
-            <!-- Service 2 -->
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                <div class="event-item h-100 p-4 text-center">
-                    <i class="fa fa-server fa-3x text-primary mb-3"></i>
-                    <h3>API & Backend Development</h3>
-                    <p>
-                        Robust backend systems and APIs using Python
-                        and .NET technologies.
-                    </p>
-                    <div class="bg-light p-4 mt-3">
-                        <p class="mb-1"><i class="fa fa-check text-primary me-2"></i>REST APIs</p>
-                        <p class="mb-1"><i class="fa fa-check text-primary me-2"></i>Database Design</p>
-                        <p class="mb-0"><i class="fa fa-check text-primary me-2"></i>High Performance</p>
-                    </div>
-                </div>
+            <div class="modal-body">
+                <p class="offer-intro">
+                    Below is a detailed breakdown of what’s included in this service.
+                </p>
+
+                <div id="offerDetails" class="offer-details"></div>
             </div>
 
-            <!-- Service 3 -->
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                <div class="event-item h-100 p-4 text-center">
-                    <i class="fa fa-cloud fa-3x text-primary mb-3"></i>
-                    <h3>Deployment & Support</h3>
-                    <p>
-                        Secure deployment and continuous support
-                        after project delivery.
-                    </p>
-                    <div class="bg-light p-4 mt-3">
-                        <p class="mb-1"><i class="fa fa-check text-primary me-2"></i>Server Setup</p>
-                        <p class="mb-1"><i class="fa fa-check text-primary me-2"></i>Live Deployment</p>
-                        <p class="mb-0"><i class="fa fa-check text-primary me-2"></i>Ongoing Maintenance</p>
-                    </div>
-                </div>
+            <div class="modal-footer border-0">
+                <button class="btn btn-dark px-4 py-2" onclick="goToContact()">
+                    Continue to Contact
+                </button>
             </div>
 
         </div>
     </div>
 </div>
-<!-- Services End -->
+
+<script>
+function openOffer(title, details) {
+    document.getElementById("offerTitle").innerText = title;
+
+    document.getElementById("offerDetails").innerHTML = `
+        <ul>
+            ${details}
+        </ul>
+    `;
+
+    const modalEl = document.getElementById("offerModal");
+    const modal = new bootstrap.Modal(modalEl);
+    modal.show();
+
+    modalEl.querySelector(".modal-content").classList.remove("animate");
+    setTimeout(() => {
+        modalEl.querySelector(".modal-content").classList.add("animate");
+    }, 100);
+}
+
+function goToContact() {
+    window.location.href = "contact.html";
+}
+</script>
 
 
    <!-- CTA Banner Start -->
@@ -218,10 +434,10 @@
                     </p>
 
                     <div class="d-flex justify-content-center wow fadeIn" data-wow-delay="0.7s">
-                        <a class="btn btn-primary py-3 px-4 me-3" href="#contact">
+                        <a class="btn btn-primary py-3 px-4 me-3" href="contact.html">
                             Start Project
                         </a>
-                        <a class="btn btn-secondary py-3 px-4" href="#services">
+                        <a class="btn btn-secondary py-3 px-4" href="service.html">
                             View Services
                         </a>
                     </div>
@@ -235,84 +451,153 @@
 
 
 
-    <!-- Newsletter Start -->
-    <div class="container-fluid bg-primary py-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-7 text-center wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="display-6 mb-4">Subscribe the Newsletter</h1>
-                    <div class="position-relative w-100 mb-2">
-                        <input class="form-control border-0 w-100 ps-4 pe-5" type="text" placeholder="Enter Your Email"
-                            style="height: 60px;">
-                        <button type="button"
-                            class="btn btn-lg-square shadow-none position-absolute top-0 end-0 mt-2 me-2"><i
-                                class="fa fa-paper-plane text-primary fs-4"></i></button>
-                    </div>
-                    <p class="mb-0">Don't worry, we won't spam you with emails.</p>
+
+   <!-- Newsletter Start -->
+<div class="container-fluid bg-primary py-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 text-center wow fadeIn" data-wow-delay="0.5s">
+                <h1 class="display-6 mb-4">Subscribe to Our Newsletter</h1>
+
+                <div class="position-relative w-100 mb-2">
+                    <input
+                        id="newsletterEmail"
+                        class="form-control border-0 w-100 ps-4 pe-5"
+                        type="email"
+                        placeholder="Enter your email address"
+                        style="height: 60px;"
+                    />
+
+                    <button
+                        type="button"
+                        onclick="sendNewsletterEmail()"
+                        class="btn btn-lg-square shadow-none position-absolute top-0 end-0 mt-2 me-2">
+                        <i class="fa fa-paper-plane text-primary fs-4"></i>
+                    </button>
                 </div>
+
+                <p class="mb-0">We respect your inbox. No spam, ever.</p>
             </div>
         </div>
     </div>
-    <!-- Newsletter End -->
+</div>
+<!-- Newsletter End -->
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function () {
+  emailjs.init("plwxXwmIjqRkmoVP8"); // PUBLIC KEY
+})();
+
+function sendNewsletterEmail() {
+    const email = document.getElementById("newsletterEmail").value.trim();
+
+    if (!email || !email.includes("@")) {
+        alert("❌ Please enter a valid email address");
+        return;
+    }
+
+    emailjs.send(
+        "service_kriakco",
+        "template_m0q6e97", // ✅ YOUR TEMPLATE ID
+        {
+            email: email
+        }
+    )
+    .then(() => {
+        alert("✅ Successfully subscribed!");
+        document.getElementById("newsletterEmail").value = "";
+    })
+    .catch((error) => {
+        console.error("EmailJS Error:", error);
+        alert("❌ Subscription failed. Please try again.");
+    });
+}
+</script>
 
 
-   <!-- Footer Start -->
-<div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.1s">
+
+
+  <!-- Footer Start -->
+<div class="container-fluid footer py-5 bg-dark text-light wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
-        <div class="row g-5 py-5">
+        <div class="row g-5 py-4">
 
-            <!-- About -->
+            <!-- Brand / About -->
             <div class="col-lg-4 col-md-6">
-                <h4 class="text-light mb-4">About Me</h4>
+                <h3 class="text-white mb-3">YSIFY</h3>
                 <p class="mb-3">
-                    I am a solo developer focused on building clean,
-                    scalable, and reliable digital solutions.
-                    Currently open for freelance and project collaborations.
+                    Founder-led software studio building clean, scalable,
+                    and secure web & backend solutions for startups
+                    and growing businesses worldwide.
                 </p>
-                <div class="d-flex pt-3">
-                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-github"></i></a>
-                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-x-twitter"></i></a>
+                <p class="mb-4">
+                    <strong>Founder:</strong> Yashvi Savaliya
+                </p>
+
+                <div class="d-flex">
+                    <a class="btn btn-square btn-outline-light me-2" href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-square btn-outline-light me-2" href="https://github.com/yashvi36" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                   <a class="btn btn-square btn-outline-light" href="https://www.instagram.com/ysify_solution/" target="_blank">
+    <i class="fab fa-instagram"></i>
+</a>
+
                 </div>
             </div>
 
-            <!-- Quick Links -->
+            <!-- Services -->
             <div class="col-lg-4 col-md-6">
-                <h4 class="text-light mb-4">Quick Links</h4>
-                <a class="btn btn-link" href="#about">About</a>
-                <a class="btn btn-link" href="#services">Services</a>
-                <a class="btn btn-link" href="#projects">Projects</a>
-                <a class="btn btn-link" href="#contact">Contact</a>
+                <h4 class="text-white mb-3">What We Do</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-2">Custom Web Applications</li>
+                    <li class="mb-2">.NET & Python Backend Systems</li>
+                    <li class="mb-2">API Development & Integrations</li>
+                    <li class="mb-2">AI Automation & Agents</li>
+                    <li>Hosting & Deployment</li>
+                </ul>
             </div>
 
             <!-- Contact -->
             <div class="col-lg-4 col-md-12">
-                <h4 class="text-light mb-4">Contact</h4>
+                <h4 class="text-white mb-3">Contact</h4>
+               <p class="mb-2">
+    <i class="fa fa-envelope me-2"></i>
+    <a href="mailto:info@ysify.in" class="text-light me-2" style="cursor:pointer;">
+        info@ysify.in
+    </a>
+    |
+    <a href="mailto:yashvisavaliya3436@gmail.com" class="text-light ms-2" style="cursor:pointer;">
+        yashvisavaliya3436@gmail.com
+    </a>
+</p>
+
                 <p class="mb-2">
-                    <i class="fa fa-envelope me-3"></i>
-                    yashvisavaliya3436@gmail.com
-                </p>
-                <p class="mb-2">
-                    <i class="fa fa-globe me-3"></i>
-                    Available Worldwide (Remote)
+                    <i class="fa fa-globe me-2"></i>
+                    Remote • Worldwide
                 </p>
                 <p class="mb-0">
-                    <i class="fa fa-clock me-3"></i>
-                    Mon – Sun : 08:00 AM – 8:00 PM
+                    <i class="fa fa-clock me-2"></i>
+                    Mon – Sun | 8:00 AM – 8:00 PM
                 </p>
             </div>
 
         </div>
 
-        <!-- Copyright -->
-        <div class="copyright pt-4">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <span class="fw-semi-bold">2025 Yashvi Savaliya</span>. All Rights Reserved.
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    Built with ❤️ by <span class="fw-semi-bold">Yashvi Savaliya</span>
-                </div>
+        <hr class="border-secondary">
+
+        <!-- Bottom -->
+        <div class="row pt-3">
+            <div class="col-md-6 text-center text-md-start">
+                © 2025 <strong>YSIFY</strong>. All Rights Reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                Built & Managed by <strong>Founder, YSIFY — Yashvi Savaliya</strong>
             </div>
         </div>
     </div>

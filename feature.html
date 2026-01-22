@@ -30,6 +30,402 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+<style>
+/* === SKILLS SECTION – PREMIUM LOOK === */
+
+.skills-accordion {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* MAIN CARD */
+.skill-box {
+    background: linear-gradient(145deg, #ffffff, #f3f6ff);
+    border-radius: 18px;
+    margin-bottom: 22px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+    overflow: hidden;
+    transition: all 0.35s ease;
+    border-left: 6px solid transparent;
+}
+
+.skill-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 35px 90px rgba(0,0,0,0.12);
+    border-left: 6px solid #0d6efd;
+}
+
+/* HEADER */
+.skill-header {
+    padding: 22px 26px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #111;
+    cursor: pointer;
+    position: relative;
+}
+
+.skill-header::after {
+    content: "+";
+    position: absolute;
+    right: 24px;
+    font-size: 22px;
+    color: #0d6efd;
+    transition: transform 0.3s ease;
+}
+
+/* BODY */
+.skill-body {
+    display: none;
+    padding: 10px 26px 22px;
+    animation: skillExpand 0.45s ease;
+}
+
+/* SUB SKILL */
+.sub-skill {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: #fff;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.sub-skill:hover {
+    background: #0d6efd;
+    color: #fff;
+    transform: translateX(6px);
+}
+
+/* SUB DETAIL */
+.sub-detail {
+    display: none;
+    margin: 10px 0 0 14px;
+    padding: 14px 18px;
+    background: rgba(13,110,253,0.08);
+    border-left: 4px solid #0d6efd;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #333;
+    animation: subExpand 0.35s ease;
+}
+
+/* ANIMATIONS */
+@keyframes skillExpand {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subExpand {
+    from {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .skill-header {
+        font-size: 18px;
+    }
+}
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.faq-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px 22px;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.06);
+    cursor: pointer;
+    transition: all 0.35s ease;
+}
+
+.faq-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.12);
+}
+
+.faq-question {
+    font-size: 16px;
+    font-weight: 600;
+    position: relative;
+    padding-right: 24px;
+}
+
+.faq-question::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+    color: #0d6efd;
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    display: none;
+    margin-top: 14px;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    animation: faqOpen 0.35s ease;
+}
+
+.faq-card.active .faq-question::after {
+    transform: rotate(45deg);
+}
+
+@keyframes faqOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .faq-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.marquee-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-track {
+    display: flex;
+    gap: 30px;
+    animation: marquee 35s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+/* CARD STYLE */
+.skill-marquee-card {
+    min-width: 320px;
+    height: 200px;
+    background: linear-gradient(135deg, #d3e2f8, #817f7f);
+    border-radius: 22px;
+    padding: 28px;
+    color: #fff;
+    
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.skill-marquee-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.skill-marquee-card p {
+    font-size: 15px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* HOVER EFFECT */
+.skill-marquee-card:hover {
+    transform: scale(1.08) rotate(-1deg);
+    box-shadow: 0 40px 120px rgba(13,110,253,0.6);
+}
+
+/* ANIMATION */
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .skill-marquee-card {
+        min-width: 260px;
+        height: 180px;
+    }
+}
+.skill-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  height: 260px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  transition: all 0.4s ease;
+}
+
+.skill-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.skill-card:hover img {
+  transform: scale(1.08);
+}
+
+.skill-overlay {
+  position: absolute;
+  inset: 0;
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  color: #fff;
+}
+
+.skill-overlay h4 {
+  font-weight: 700;
+}
+
+.skill-overlay p {
+  opacity: 0.85;
+  margin: 0;
+}
+.skill-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.skill-modal-box {
+  background: #fff;
+  width: 90%;
+  max-width: 900px;
+  border-radius: 22px;
+  padding: 30px;
+  animation: zoomIn 0.4s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+}
+.tags span {
+  background: #f1f1f1;
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-right: 6px;
+  font-size: 14px;
+}
+.skill-modal-box {
+  position: relative; /* 🔥 MUST */
+}
+
+.skill-card {
+    position: relative;
+    height: 240px;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Image */
+.skill-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Overlay */
+.skill-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.25)
+    );
+    z-index: 1;
+}
+
+/* Text content */
+.skill-overlay {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    z-index: 2;
+    color: #fff;
+}
+
+.skill-overlay h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.skill-overlay p {
+    font-size: 14px;
+    opacity: 0.85;
+    margin: 0;
+}
+
+/* Hover Effects */
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
+}
+
+.skill-card:hover img {
+    transform: scale(1.1);
+}
+
+</style>
 </head>
 
 <body>
@@ -69,7 +465,7 @@
                             </div>
                             <div class="ms-2">
                                 <h6 class="text-primary mb-0">Mail Us</h6>
-                                <span class="text-white">yashvisavaliya3436@gmail.com</span>
+                                <span class="text-white">info@ysify.in</span>
                             </div>
                         </div>
                     </div>
@@ -80,7 +476,7 @@
                             </div>
                             <div class="ms-2">
                                 <h6 class="text-primary mb-0">Address</h6>
-                                <span class="text-white">C 403 Radhe Residence ,Surat ,India</span>
+                                <span class="text-white">surat, gujarat, india</span>
                             </div>
                         </div>
                     </div>
@@ -94,7 +490,7 @@
     <div class="container-fluid bg-secondary px-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="nav-bar">
             <nav class="navbar navbar-expand-lg bg-primary navbar-dark px-4 py-lg-0">
-                <h4 class="d-lg-none m-0">Menu</h4>
+                <h4 class="d-lg-none m-0"></h4>
                 <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -117,164 +513,320 @@
                         </div>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
-                    <div class="d-none d-lg-flex ms-auto">
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-youtube"></i></a>
-                    </div>
+                     <div class="d-flex">
+                    <a class="btn btn-square btn-outline-light me-2" href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-square btn-outline-light me-2" href="https://github.com/yashvi36" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                   <a class="btn btn-square btn-outline-light" href="https://www.instagram.com/ysify_solution/" target="_blank">
+    <i class="fab fa-instagram"></i>
+</a>
+
+                </div>
                 </div>
             </nav>
         </div>
     </div>
     <!-- Navbar End -->
 
-   <!-- Skills Start -->
-<div class="container-fluid py-5">
-    <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
-            <p class="section-title bg-white text-center text-primary px-3">Skills</p>
-            <h1 class="display-6">My Technical Expertise</h1>
-            <p class="fs-5">
-                Technologies I use to design, develop, and deploy modern web applications.
-            </p>
+<section class="container py-5">
+  <div class="text-center mb-5">
+    
+    <h1 class="display-6">What I Specialize In</h1>
+  </div>
+
+  <div class="row g-4">
+
+    <!-- Card -->
+    <div class="col-md-6 col-lg-4">
+      <div class="skill-card" onclick="openSkillModal('web')">
+        <img src="img/image1.jpg" alt="Web Development">
+        <div class="skill-overlay">
+          <h4 class="text-white">Web Development</h4>
+          <p>Modern UI & scalable apps</p>
         </div>
+      </div>
+    </div>
 
-        <div class="row g-4 text-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="skill-card" onclick="openSkillModal('backend')">
+        <img src="img/image2.webp" alt="Backend">
+        <div class="skill-overlay ">
+          <h4 class="text-white">Backend Development</h4>
+          <p>.NET · Python · Node.js</p>
+        </div>
+      </div>
+    </div>
 
-            <!-- Frontend -->
-            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                <div class="bg-light p-4 h-100 rounded">
-                    <i class="fa fa-code fa-3x text-primary mb-3"></i>
-                    <h5>Frontend</h5>
-                    <p class="mb-1">HTML5</p>
-                    <p class="mb-1">CSS3</p>
-                    <p class="mb-1">JavaScript</p>
-                    <p class="mb-0">React.js</p>
-                </div>
+    <div class="col-md-6 col-lg-4">
+      <div class="skill-card" onclick="openSkillModal('ai')">
+        <img src="img/image3.avif" alt="AI Automation">
+        <div class="skill-overlay">
+          <h4 class="text-white">AI Automation</h4>
+          <p>n8n · API workflows</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="skill-card" onclick="openSkillModal('agent')">
+        <img src="img/image4.webp" alt="AI Agent">
+        <div class="skill-overlay">
+          <h4 class="text-white">AI Agent Development</h4>
+          <p>Smart autonomous systems</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="skill-card" onclick="openSkillModal('api')">
+        <img src="img/image5.webp" alt="API">
+        <div class="skill-overlay">
+          <h4 class="text-white">API Integration</h4>
+          <p>Secure & scalable</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="skill-card" onclick="openSkillModal('db')">
+        <img src="img/image6.png" alt="Database">
+        <div class="skill-overlay">
+          <h4 class="text-white">Database Design</h4>
+          <p>SQL · PostgreSQL</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<div class="skill-modal" id="skillModal">
+  <div class="skill-modal-box">
+    <span class="close-btn   " onclick="closeSkillModal()">x</span>
+
+    <div class="row g-4 align-items-center">
+      <div class="col-md-6">
+        <img id="modalImage" class="img-fluid rounded-4">
+      </div>
+      <div class="col-md-6">
+
+
+        <h3 id="modalTitle"></h3>
+        <p id="modalDesc"></p>
+
+        <div class="tags mb-3" id="modalTags"></div>
+
+        <a href="contact.html" class="btn btn-primary btn-lg w-100">
+          Start Similar Project
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+const skillData = {
+  web: {
+    title: "Web Application Development",
+    desc: "Modern, responsive web applications using HTML, CSS, Bootstrap, JavaScript, React & Angular.",
+    img: "img/image1.jpg",
+    tags: ["HTML", "CSS", "React", "Angular"]
+  },
+  backend: {
+    title: "Backend Development",
+    desc: "Secure and scalable backend systems using .NET, Python, and Node.js.",
+    img: "img/image2.webp",
+    tags: [".NET", "Python", "Node.js"]
+  },
+  ai: {
+    title: "AI Automation",
+    desc: "Workflow automation using n8n with API integrations and AI logic.",
+    img: "img/image3.avif",
+    tags: ["n8n", "Automation", "API"]
+  },
+  agent: {
+    title: "AI Agent Development",
+    desc: "Custom AI agents that perform intelligent tasks autonomously.",
+    img: "img/image4.webp",
+    tags: ["AI Agents", "LLMs"]
+  },
+  api: {
+    title: "API Integration",
+    desc: "Reliable third-party API integrations with secure authentication.",
+    img: "img/image5.webp",
+    tags: ["REST API", "Integration"]
+  },
+  db: {
+    title: "Database Design",
+    desc: "Optimized database design using SQL and PostgreSQL.",
+    img: "img/image6.png",
+    tags: ["SQL", "PostgreSQL"]
+  }
+};
+
+function openSkillModal(key) {
+  const data = skillData[key];
+  document.getElementById("modalTitle").innerText = data.title;
+  document.getElementById("modalDesc").innerText = data.desc;
+  document.getElementById("modalImage").src = data.img;
+
+  const tagBox = document.getElementById("modalTags");
+  tagBox.innerHTML = "";
+  data.tags.forEach(t => tagBox.innerHTML += `<span>${t}</span>`);
+
+  document.getElementById("skillModal").style.display = "flex";
+}
+
+function closeSkillModal() {
+  document.getElementById("skillModal").style.display = "none";
+}
+</script>
+
+<!-- Skills Marquee Start -->
+<div class="container-fluid py-5 ">
+    <div class="container text-center mb-4">
+        <h1 class="display-6 text-black">Skills & Expertise</h1>
+        <p class="text-muted">Technologies I work with to build real products</p>
+    </div>
+
+    <div class="marquee-wrapper">
+        <div class="marquee-track">
+
+            <!-- CARD -->
+            <div class="skill-marquee-card">
+                <h3>Web Development</h3>
+                <p>HTML • CSS • Bootstrap • JS • React • Angular</p>
             </div>
 
-            <!-- UI Frameworks -->
-            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.2s">
-                <div class="bg-light p-4 h-100 rounded">
-                    <i class="fa fa-layer-group fa-3x text-primary mb-3"></i>
-                    <h5>UI Frameworks</h5>
-                    <p class="mb-1">Bootstrap</p>
-                    <p class="mb-1">Responsive Design</p>
-                    <p class="mb-1">Cross Browser UI</p>
-                    <p class="mb-0">Modern Layouts</p>
-                </div>
+            <div class="skill-marquee-card">
+                <h3>Backend Development</h3>
+                <p>.NET • Python • Node.js • REST APIs</p>
             </div>
 
-            <!-- Backend -->
-            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
-                <div class="bg-light p-4 h-100 rounded">
-                    <i class="fa fa-server fa-3x text-primary mb-3"></i>
-                    <h5>Backend</h5>
-                    <p class="mb-1">Python</p>
-                    <p class="mb-1">.NET</p>
-                    <p class="mb-1">REST API</p>
-                    <p class="mb-0">Authentication</p>
-                </div>
+            <div class="skill-marquee-card">
+                <h3>AI Automation</h3>
+                <p>n8n • Workflow Automation • API Triggers</p>
             </div>
 
-            <!-- Database -->
-            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.4s">
-                <div class="bg-light p-4 h-100 rounded">
-                    <i class="fa fa-database fa-3x text-primary mb-3"></i>
-                    <h5>Database</h5>
-                    <p class="mb-1">SQL</p>
-                    <p class="mb-1">PostgreSQL</p>
-                    <p class="mb-1">Data Modeling</p>
-                    <p class="mb-0">Optimized Queries</p>
-                </div>
+            <div class="skill-marquee-card">
+                <h3>API Integration</h3>
+                <p>Payment • Third-party • System APIs</p>
+            </div>
+
+            <div class="skill-marquee-card">
+                <h3>Database Systems</h3>
+                <p>SQL • PostgreSQL • Optimized Queries</p>
+            </div>
+
+            <div class="skill-marquee-card">
+                <h3>AI Agent Development</h3>
+                <p>Intelligent Agents • Task Automation</p>
+            </div>
+
+            <!-- DUPLICATE FOR SMOOTH LOOP -->
+            <div class="skill-marquee-card">
+                <h3>Web Development</h3>
+                <p>HTML • CSS • Bootstrap • JS • React • Angular</p>
+            </div>
+
+            <div class="skill-marquee-card">
+                <h3>Backend Development</h3>
+                <p>.NET • Python • Node.js • REST APIs</p>
             </div>
 
         </div>
     </div>
 </div>
-<!-- Skills End -->
+<!-- Skills Marquee End -->
 
 
 
 <!-- FAQ Start -->
-<div class="container-fluid bg-light py-5">
-    <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
-            <p class="section-title bg-white text-center text-primary px-3">FAQ</p>
-            <h1 class="display-6">Frequently Asked Questions</h1>
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <p class="section-title bg-white text-center text-primary px-3">FAQ</p>
+        <h1 class="display-6">Frequently Asked Questions</h1>
+    </div>
+
+    <div class="faq-grid">
+
+        <!-- FAQ Item -->
+        <div class="faq-card">
+            <div class="faq-question">Do you work as a solo developer?</div>
+            <div class="faq-answer">
+                Yes, I handle projects independently — from planning and development
+                to deployment and long-term support.
+            </div>
         </div>
 
-        <div class="accordion" id="faqAccordion">
-
-            <!-- FAQ 1 -->
-            <div class="accordion-item wow fadeIn" data-wow-delay="0.1s">
-                <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#faq1">
-                        Do you work as a solo developer?
-                    </button>
-                </h2>
-                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        Yes, I handle projects independently — from planning and development
-                        to deployment and support, ensuring clear communication and quality.
-                    </div>
-                </div>
+        <div class="faq-card">
+            <div class="faq-question">What type of projects do you work on?</div>
+            <div class="faq-answer">
+                Websites, web applications, admin panels, APIs, dashboards,
+                and custom backend systems.
             </div>
-
-            <!-- FAQ 2 -->
-            <div class="accordion-item wow fadeIn" data-wow-delay="0.2s">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#faq2">
-                        What type of projects do you work on?
-                    </button>
-                </h2>
-                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        I work on websites, web applications, APIs, dashboards,
-                        admin panels, and custom backend systems.
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ 3 -->
-            <div class="accordion-item wow fadeIn" data-wow-delay="0.3s">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#faq3">
-                        Which technologies do you use?
-                    </button>
-                </h2>
-                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        HTML, CSS, JavaScript, React, Bootstrap, Python, .NET,
-                        REST APIs, SQL, and PostgreSQL.
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ 4 -->
-            <div class="accordion-item wow fadeIn" data-wow-delay="0.4s">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#faq4">
-                        How can I start a project with you?
-                    </button>
-                </h2>
-                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        You can contact me via the contact page or email.
-                        After understanding your requirements, I’ll provide
-                        a clear plan and timeline.
-                    </div>
-                </div>
-            </div>
-
         </div>
+
+        <div class="faq-card">
+            <div class="faq-question">Which technologies do you use?</div>
+            <div class="faq-answer">
+                HTML, CSS, JavaScript, React, Angular, Python, .NET,
+                REST APIs, SQL, PostgreSQL.
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <div class="faq-question">Do you provide deployment support?</div>
+            <div class="faq-answer">
+                Yes, I handle server setup, deployment, and production configuration.
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <div class="faq-question">Can you build custom software?</div>
+            <div class="faq-answer">
+                Yes, end-to-end custom software including AI-powered systems.
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <div class="faq-question">Do you work with startups?</div>
+            <div class="faq-answer">
+                Absolutely. I regularly work with startups and early-stage founders.
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <div class="faq-question">How do we start a project?</div>
+            <div class="faq-answer">
+                Contact me via the contact page or email to discuss requirements.
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <div class="faq-question">Do you offer post-launch support?</div>
+            <div class="faq-answer">
+                Yes, ongoing maintenance and enhancements are available.
+            </div>
+        </div>
+
     </div>
 </div>
 <!-- FAQ End -->
+<script>
+document.querySelectorAll(".faq-card").forEach(card => {
+    card.addEventListener("click", () => {
+        card.classList.toggle("active");
+        const answer = card.querySelector(".faq-answer");
+        answer.style.display = answer.style.display === "block" ? "none" : "block";
+    });
+});
+</script>
+
+
+
+
 
 
 

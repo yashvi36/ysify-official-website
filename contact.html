@@ -69,7 +69,7 @@
                             </div>
                             <div class="ms-2">
                                 <h6 class="text-primary mb-0">Mail Us</h6>
-                                <span class="text-white">yashvisavaliya3436@gmail.com</span>
+                                <span class="text-white">info@ysify.in</span>
                             </div>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                             </div>
                             <div class="ms-2">
                                 <h6 class="text-primary mb-0">Address</h6>
-                                <span class="text-white">C 403 Radhe Residence ,Surat ,India</span>
+                                <span class="text-white">surat, gujarat, india</span>
                             </div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
     <div class="container-fluid bg-secondary px-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="nav-bar">
             <nav class="navbar navbar-expand-lg bg-primary navbar-dark px-4 py-lg-0">
-                <h4 class="d-lg-none m-0">Menu</h4>
+                <h4 class="d-lg-none m-0"></h4>
                 <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -119,11 +119,18 @@
                         </div>
                         <a href="contact.html" class="nav-item nav-link active">Contact</a>
                     </div>
-                    <div class="d-none d-lg-flex ms-auto">
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-youtube"></i></a>
-                    </div>
+                      <div class="d-flex">
+                    <a class="btn btn-square btn-outline-light me-2" href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-square btn-outline-light me-2" href="https://github.com/yashvi36" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                   <a class="btn btn-square btn-outline-light" href="https://www.instagram.com/ysify_solution/" target="_blank">
+    <i class="fab fa-instagram"></i>
+</a>
+
+                </div>
                 </div>
             </nav>
         </div>
@@ -163,47 +170,41 @@
                     used only for communication.
                 </p>
 
-                <form>
-                    <div class="row g-3">
+               
+    <div class="row g-3">
 
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-                                <label for="name">Your Name</label>
-                            </div>
-                        </div>
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="pd_name" placeholder="Your Name" required>
+                <label for="pd_name">Your Name</label>
+            </div>
+        </div>
 
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <input type="email" class="form-control" id="email" placeholder="Your Email" required>
-                                <label for="email">Your Email</label>
-                            </div>
-                        </div>
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="pd_email" placeholder="Your Email" required>
+                <label for="pd_email">Your Email</label>
+            </div>
+        </div>
 
-                        <div class="col-12">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                <label for="subject">Subject</label>
-                            </div>
-                        </div>
+        <div class="col-12">
+            <div class="form-floating">
+                <textarea class="form-control" id="pd_message" placeholder="Project Details"
+                    style="height: 120px" required></textarea>
+                <label for="pd_message">Project Requirement</label>
+            </div>
+        </div>
 
-                        <div class="col-12">
-                            <div class="form-floating">
-                                <textarea class="form-control" id="message"
-                                    placeholder="Describe your project or query"
-                                    style="height: 250px" required></textarea>
-                                <label for="message">Message</label>
-                            </div>
-                        </div>
+        <div class="col-12">
+            <button class="btn btn-secondary py-3 w-100" type="submit">
+                Start Project Discussion
+            </button>
+        </div>
 
-                        <div class="col-12">
-                            <button class="btn btn-primary py-3 px-4" type="submit">
-                                Send Message
-                            </button>
-                        </div>
+    </div>
 
-                    </div>
-                </form>
+</form>
+
             </div>
 
         </div>
@@ -212,90 +213,197 @@
 <!-- Contact End -->
 
 
-    <!-- Newsletter Start -->
-    <div class="container-fluid bg-primary py-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-7 text-center wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="display-6 mb-4">Subscribe the Newsletter</h1>
-                    <div class="position-relative w-100 mb-2">
-                        <input class="form-control border-0 w-100 ps-4 pe-5" type="text" placeholder="Enter Your Email"
-                            style="height: 60px;">
-                        <button type="button"
-                            class="btn btn-lg-square shadow-none position-absolute top-0 end-0 mt-2 me-2"><i
-                                class="fa fa-paper-plane text-primary fs-4"></i></button>
-                    </div>
-                    <p class="mb-0">Don't worry, we won't spam you with emails.</p>
+<<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function () {
+    emailjs.init("plwxXwmIjqRkmoVP8"); // PUBLIC KEY
+})();
+
+document.getElementById("projectDiscussionForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("pd_name").value.trim();
+    const email = document.getElementById("pd_email").value.trim();
+    const message = document.getElementById("pd_message").value.trim();
+
+    if (!name || !email || !message) {
+        alert("❌ All fields are required");
+        return;
+    }
+
+    emailjs.send(
+        "service_kriakco",
+        "template_7lhh3uo",
+        {
+            name: name,
+            email: email,
+            message: message
+        }
+    )
+    .then(() => {
+        alert("✅ Project details sent successfully!");
+        document.getElementById("projectDiscussionForm").reset();
+    })
+    .catch((error) => {
+        console.error(error);
+        alert("❌ Something went wrong. Try again.");
+    });
+});
+</script>
+   <!-- Newsletter Start -->
+<div class="container-fluid bg-primary py-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 text-center wow fadeIn" data-wow-delay="0.5s">
+                <h1 class="display-6 mb-4">Subscribe to Our Newsletter</h1>
+
+                <div class="position-relative w-100 mb-2">
+                    <input
+                        id="newsletterEmail"
+                        class="form-control border-0 w-100 ps-4 pe-5"
+                        type="email"
+                        placeholder="Enter your email address"
+                        style="height: 60px;"
+                    />
+
+                    <button
+                        type="button"
+                        onclick="sendNewsletterEmail()"
+                        class="btn btn-lg-square shadow-none position-absolute top-0 end-0 mt-2 me-2">
+                        <i class="fa fa-paper-plane text-primary fs-4"></i>
+                    </button>
                 </div>
+
+                <p class="mb-0">We respect your inbox. No spam, ever.</p>
             </div>
         </div>
     </div>
-    <!-- Newsletter End -->
+</div>
+<!-- Newsletter End -->
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function () {
+  emailjs.init("plwxXwmIjqRkmoVP8"); // PUBLIC KEY
+})();
+
+function sendNewsletterEmail() {
+    const email = document.getElementById("newsletterEmail").value.trim();
+
+    if (!email || !email.includes("@")) {
+        alert("❌ Please enter a valid email address");
+        return;
+    }
+
+    emailjs.send(
+        "service_kriakco",
+        "template_m0q6e97", // ✅ YOUR TEMPLATE ID
+        {
+            email: email
+        }
+    )
+    .then(() => {
+        alert("✅ Successfully subscribed!");
+        document.getElementById("newsletterEmail").value = "";
+    })
+    .catch((error) => {
+        console.error("EmailJS Error:", error);
+        alert("❌ Subscription failed. Please try again.");
+    });
+}
+</script>
 
 
-   
-    <!-- Footer Start -->
-<div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.1s">
+
+
+  <!-- Footer Start -->
+<div class="container-fluid footer py-5 bg-dark text-light wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
-        <div class="row g-5 py-5">
+        <div class="row g-5 py-4">
 
-            <!-- About -->
+            <!-- Brand / About -->
             <div class="col-lg-4 col-md-6">
-                <h4 class="text-light mb-4">About Me</h4>
+                <h3 class="text-white mb-3">YSIFY</h3>
                 <p class="mb-3">
-                    I am a solo developer focused on building clean,
-                    scalable, and reliable digital solutions.
-                    Currently open for freelance and project collaborations.
+                    Founder-led software studio building clean, scalable,
+                    and secure web & backend solutions for startups
+                    and growing businesses worldwide.
                 </p>
-                <div class="d-flex pt-3">
-                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-github"></i></a>
-                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-x-twitter"></i></a>
+                <p class="mb-4">
+                    <strong>Founder:</strong> Yashvi Savaliya
+                </p>
+
+                <div class="d-flex">
+                    <a class="btn btn-square btn-outline-light me-2" href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-square btn-outline-light me-2" href="https://github.com/yashvi36" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                   <a class="btn btn-square btn-outline-light" href="https://www.instagram.com/ysify_solution/" target="_blank">
+    <i class="fab fa-instagram"></i>
+</a>
+
                 </div>
             </div>
 
-            <!-- Quick Links -->
+            <!-- Services -->
             <div class="col-lg-4 col-md-6">
-                <h4 class="text-light mb-4">Quick Links</h4>
-                <a class="btn btn-link" href="#about">About</a>
-                <a class="btn btn-link" href="#services">Services</a>
-                <a class="btn btn-link" href="#projects">Projects</a>
-                <a class="btn btn-link" href="#contact">Contact</a>
+                <h4 class="text-white mb-3">What We Do</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-2">Custom Web Applications</li>
+                    <li class="mb-2">.NET & Python Backend Systems</li>
+                    <li class="mb-2">API Development & Integrations</li>
+                    <li class="mb-2">AI Automation & Agents</li>
+                    <li>Hosting & Deployment</li>
+                </ul>
             </div>
 
             <!-- Contact -->
             <div class="col-lg-4 col-md-12">
-                <h4 class="text-light mb-4">Contact</h4>
+                <h4 class="text-white mb-3">Contact</h4>
+               <p class="mb-2">
+    <i class="fa fa-envelope me-2"></i>
+    <a href="mailto:info@ysify.in" class="text-light me-2" style="cursor:pointer;">
+        info@ysify.in
+    </a>
+    |
+    <a href="mailto:yashvisavaliya3436@gmail.com" class="text-light ms-2" style="cursor:pointer;">
+        yashvisavaliya3436@gmail.com
+    </a>
+</p>
+
                 <p class="mb-2">
-                    <i class="fa fa-envelope me-3"></i>
-                    yashvisavaliya3436@gmail.com
-                </p>
-                <p class="mb-2">
-                    <i class="fa fa-globe me-3"></i>
-                    Available Worldwide (Remote)
+                    <i class="fa fa-globe me-2"></i>
+                    Remote • Worldwide
                 </p>
                 <p class="mb-0">
-                    <i class="fa fa-clock me-3"></i>
-                    Mon – Sun : 08:00 AM – 8:00 PM
+                    <i class="fa fa-clock me-2"></i>
+                    Mon – Sun | 8:00 AM – 8:00 PM
                 </p>
             </div>
 
         </div>
 
-        <!-- Copyright -->
-        <div class="copyright pt-4">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <span class="fw-semi-bold">2025 Yashvi Savaliya</span>. All Rights Reserved.
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    Built with ❤️ by <span class="fw-semi-bold">Yashvi Savaliya</span>
-                </div>
+        <hr class="border-secondary">
+
+        <!-- Bottom -->
+        <div class="row pt-3">
+            <div class="col-md-6 text-center text-md-start">
+                © 2025 <strong>YSIFY</strong>. All Rights Reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                Built & Managed by <strong>Founder, YSIFY — Yashvi Savaliya</strong>
             </div>
         </div>
     </div>
 </div>
 <!-- Footer End -->
+
+
 
     <!-- Back to Top -->
     <a href="#!" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>

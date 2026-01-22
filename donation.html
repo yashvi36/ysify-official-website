@@ -30,6 +30,90 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+<style>
+.process-label {
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.process-timeline {
+    max-width: 900px;
+    margin: auto;
+    position: relative;
+}
+
+.process-step {
+    display: flex;
+    gap: 30px;
+    padding: 30px 0;
+    position: relative;
+}
+
+.process-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 32px;
+    top: 70px;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #000, transparent);
+    opacity: 0.15;
+}
+
+.step-number {
+    min-width: 65px;
+    height: 65px;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-content {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.step-content:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 35px 90px rgba(0,0,0,0.15);
+}
+
+.step-content h4 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.step-content p {
+    margin: 0;
+    color: #555;
+    font-size: 16px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .process-step {
+        flex-direction: column;
+    }
+
+    .process-step:not(:last-child)::after {
+        left: 32px;
+        top: 90px;
+    }
+}
+
+</style>
 </head>
 
 <body>
@@ -69,7 +153,7 @@
                             </div>
                             <div class="ms-2">
                                 <h6 class="text-primary mb-0">Mail Us</h6>
-                                <span class="text-white">yashvisavaliya3436@gmail.com</span>
+                                <span class="text-white">info@ysify.in</span>
                             </div>
                         </div>
                     </div>
@@ -80,7 +164,7 @@
                             </div>
                             <div class="ms-2">
                                 <h6 class="text-primary mb-0">Address</h6>
-                                <span class="text-white">C 403 Radhe Residence ,Surat ,India</span>
+                                <span class="text-white">surat, gujarat, india</span>
                             </div>
                         </div>
                     </div>
@@ -95,7 +179,7 @@
     <div class="container-fluid bg-secondary px-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="nav-bar">
             <nav class="navbar navbar-expand-lg bg-primary navbar-dark px-4 py-lg-0">
-                <h4 class="d-lg-none m-0">Menu</h4>
+                <h4 class="d-lg-none m-0"></h4>
                 <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -118,11 +202,18 @@
                         </div>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
-                    <div class="d-none d-lg-flex ms-auto">
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-youtube"></i></a>
-                    </div>
+                     <div class="d-flex">
+                    <a class="btn btn-square btn-outline-light me-2" href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-square btn-outline-light me-2" href="https://github.com/yashvi36" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                   <a class="btn btn-square btn-outline-light" href="https://www.instagram.com/ysify_solution/" target="_blank">
+    <i class="fab fa-instagram"></i>
+</a>
+
+                </div>
                 </div>
             </nav>
         </div>
@@ -130,115 +221,101 @@
     <!-- Navbar End -->
 
 
+<!-- Project Process Start -->
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <span class="process-label">PROJECT EXECUTION</span>
+        <h1 class="display-6">How We Build Your Project</h1>
+        <p class="fs-5 text-muted">
+            A transparent, step-by-step workflow designed for clarity, quality,
+            and on-time delivery.
+        </p>
+    </div>
 
-   <!-- Projects Start -->
-<div class="container-fluid py-5">
-    <div class="container">
-        <div class="text-center mx-auto wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
-            <p class="section-title bg-white text-center text-primary px-3">Project Details</p>
-            <h1 class="display-6 mb-4">How Your Project Will Be Built</h1>
-            <p class="fs-5">
-                Projects are developed in a clear, step-by-step process to ensure
-                transparency, quality, and timely delivery.
-            </p>
+    <div class="process-timeline">
+
+        <!-- Step 1 -->
+        <div class="process-step">
+            <div class="step-number">01</div>
+            <div class="step-content">
+                <h4>Requirement Discovery</h4>
+                <p>
+                    We start with detailed discussions to understand your business goals,
+                    target users, required features, and technical expectations.
+                </p>
+            </div>
         </div>
 
-        <div class="row g-4">
-
-            <!-- Step 1 -->
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
-                <div class="donation-item h-100 p-4">
-                    <div class="donation-detail text-center">
-                        <i class="fa fa-comments fa-3x text-primary mb-3"></i>
-                        <h3>Requirement Discussion</h3>
-                        <p>
-                            We start by understanding your idea, business goals,
-                            features, and technical expectations.
-                        </p>
-                    </div>
-                </div>
+        <!-- Step 2 -->
+        <div class="process-step">
+            <div class="step-number">02</div>
+            <div class="step-content">
+                <h4>Planning & Architecture</h4>
+                <p>
+                    System architecture, database design, API structure, and technology
+                    stack are finalized to ensure scalability and performance.
+                </p>
             </div>
-
-            <!-- Step 2 -->
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                <div class="donation-item h-100 p-4">
-                    <div class="donation-detail text-center">
-                        <i class="fa fa-diagram-project fa-3x text-primary mb-3"></i>
-                        <h3>Planning & Architecture</h3>
-                        <p>
-                            Proper system design, database structure, APIs,
-                            and technology stack selection.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                <div class="donation-item h-100 p-4">
-                    <div class="donation-detail text-center">
-                        <i class="fa fa-code fa-3x text-primary mb-3"></i>
-                        <h3>Development Phase</h3>
-                        <p>
-                            Full-stack development using modern technologies
-                            like Python, .NET, Web APIs, and databases.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Step 4 -->
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
-                <div class="donation-item h-100 p-4">
-                    <div class="donation-detail text-center">
-                        <i class="fa fa-bug fa-3x text-primary mb-3"></i>
-                        <h3>Testing & Review</h3>
-                        <p>
-                            Each module is tested for performance, security,
-                            and functionality before final delivery.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Step 5 -->
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                <div class="donation-item h-100 p-4">
-                    <div class="donation-detail text-center">
-                        <i class="fa fa-cloud-upload-alt fa-3x text-primary mb-3"></i>
-                        <h3>Deployment</h3>
-                        <p>
-                            Project is deployed on live server with proper
-                            configuration and security setup.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Step 6 -->
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                <div class="donation-item h-100 p-4">
-                    <div class="donation-detail text-center">
-                        <i class="fa fa-headset fa-3x text-primary mb-3"></i>
-                        <h3>Support & Maintenance</h3>
-                        <p>
-                            Continuous support, updates, and improvements
-                            based on client feedback.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
         </div>
+
+        <!-- Step 3 -->
+        <div class="process-step">
+            <div class="step-number">03</div>
+            <div class="step-content">
+                <h4>Design & Development</h4>
+                <p>
+                    Clean UI design combined with robust backend development using
+                    modern technologies such as Python, .NET, APIs, and secure databases.
+                </p>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="process-step">
+            <div class="step-number">04</div>
+            <div class="step-content">
+                <h4>Testing & Quality Assurance</h4>
+                <p>
+                    Thorough testing for performance, security, responsiveness,
+                    and real-world usage scenarios.
+                </p>
+            </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="process-step">
+            <div class="step-number">05</div>
+            <div class="step-content">
+                <h4>Deployment & Launch</h4>
+                <p>
+                    Secure deployment on live servers with optimization,
+                    monitoring, and production-ready configuration.
+                </p>
+            </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="process-step">
+            <div class="step-number">06</div>
+            <div class="step-content">
+                <h4>Support & Enhancements</h4>
+                <p>
+                    Ongoing support, updates, and improvements to ensure
+                    long-term success and scalability.
+                </p>
+            </div>
+        </div>
+
     </div>
 </div>
-<!-- Projects End -->
+<!-- Project Process End -->
+
 <!-- Start Project Start -->
 <div class="container-fluid donate py-5">
     <div class="container">
         <div class="row g-0">
 
-            <div class="col-lg-7 donate-text bg-light py-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="col-lg-7 donate-text bg-light py-5 wow fadeIn">
                 <div class="d-flex flex-column justify-content-center h-100 p-5">
                     <h1 class="display-6 mb-4">Let’s Start Your Project</h1>
                     <p class="fs-5 mb-0">
@@ -249,41 +326,46 @@
                 </div>
             </div>
 
-            <div class="col-lg-5 donate-form bg-primary py-5 text-center wow fadeIn" data-wow-delay="0.5s">
+            <div class="col-lg-5 donate-form bg-primary py-5 text-center wow fadeIn">
                 <div class="h-100 p-5">
-                    <form>
-                        <div class="row g-3">
 
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-                                    <label for="name">Your Name</label>
-                                </div>
-                            </div>
+                  <form id="projectDiscussionForm">
 
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
-                                    <label for="email">Your Email</label>
-                                </div>
-                            </div>
+    <div class="row g-3">
 
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" id="project"
-                                        placeholder="Project Details" style="height: 120px"></textarea>
-                                    <label for="project">Project Requirement</label>
-                                </div>
-                            </div>
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="pd_name" placeholder="Your Name" required>
+                <label for="pd_name">Your Name</label>
+            </div>
+        </div>
 
-                            <div class="col-12">
-                                <button class="btn btn-secondary py-3 w-100" type="submit">
-                                    Start Project Discussion
-                                </button>
-                            </div>
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="pd_email" placeholder="Your Email" required>
+                <label for="pd_email">Your Email</label>
+            </div>
+        </div>
 
-                        </div>
-                    </form>
+        <div class="col-12">
+            <div class="form-floating">
+                <textarea class="form-control" id="pd_message" placeholder="Project Details"
+                    style="height: 120px" required></textarea>
+                <label for="pd_message">Project Requirement</label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-secondary py-3 w-100" type="submit">
+                Start Project Discussion
+            </button>
+        </div>
+
+    </div>
+
+</form>
+
+
                 </div>
             </div>
 
@@ -292,92 +374,132 @@
 </div>
 <!-- Start Project End -->
 
+<<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
+<script>
+(function () {
+    emailjs.init("plwxXwmIjqRkmoVP8"); // PUBLIC KEY
+})();
 
-    <!-- Newsletter Start -->
-    <div class="container-fluid bg-primary py-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-7 text-center wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="display-6 mb-4">Subscribe the Newsletter</h1>
-                    <div class="position-relative w-100 mb-2">
-                        <input class="form-control border-0 w-100 ps-4 pe-5" type="text" placeholder="Enter Your Email"
-                            style="height: 60px;">
-                        <button type="button"
-                            class="btn btn-lg-square shadow-none position-absolute top-0 end-0 mt-2 me-2"><i
-                                class="fa fa-paper-plane text-primary fs-4"></i></button>
-                    </div>
-                    <p class="mb-0">Don't worry, we won't spam you with emails.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Newsletter End -->
+document.getElementById("projectDiscussionForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("pd_name").value.trim();
+    const email = document.getElementById("pd_email").value.trim();
+    const message = document.getElementById("pd_message").value.trim();
+
+    if (!name || !email || !message) {
+        alert("❌ All fields are required");
+        return;
+    }
+
+    emailjs.send(
+        "service_kriakco",
+        "template_7lhh3uo",
+        {
+            name: name,
+            email: email,
+            message: message
+        }
+    )
+    .then(() => {
+        alert("✅ Project details sent successfully!");
+        document.getElementById("projectDiscussionForm").reset();
+    })
+    .catch((error) => {
+        console.error(error);
+        alert("❌ Something went wrong. Try again.");
+    });
+});
+</script>
 
 
    
-    <!-- Footer Start -->
-<div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container">
-        <div class="row g-5 py-5">
 
-            <!-- About -->
+  <!-- Footer Start -->
+<div class="container-fluid footer py-5 bg-dark text-light wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row g-5 py-4">
+
+            <!-- Brand / About -->
             <div class="col-lg-4 col-md-6">
-                <h4 class="text-light mb-4">About Me</h4>
+                <h3 class="text-white mb-3">YSIFY</h3>
                 <p class="mb-3">
-                    I am a solo developer focused on building clean,
-                    scalable, and reliable digital solutions.
-                    Currently open for freelance and project collaborations.
+                    Founder-led software studio building clean, scalable,
+                    and secure web & backend solutions for startups
+                    and growing businesses worldwide.
                 </p>
-                <div class="d-flex pt-3">
-                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-github"></i></a>
-                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-x-twitter"></i></a>
+                <p class="mb-4">
+                    <strong>Founder:</strong> Yashvi Savaliya
+                </p>
+
+                <div class="d-flex">
+                    <a class="btn btn-square btn-outline-light me-2" href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-square btn-outline-light me-2" href="https://github.com/yashvi36" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                   <a class="btn btn-square btn-outline-light" href="https://www.instagram.com/ysify_solution/" target="_blank">
+    <i class="fab fa-instagram"></i>
+</a>
+
                 </div>
             </div>
 
-            <!-- Quick Links -->
+            <!-- Services -->
             <div class="col-lg-4 col-md-6">
-                <h4 class="text-light mb-4">Quick Links</h4>
-                <a class="btn btn-link" href="#about">About</a>
-                <a class="btn btn-link" href="#services">Services</a>
-                <a class="btn btn-link" href="#projects">Projects</a>
-                <a class="btn btn-link" href="#contact">Contact</a>
+                <h4 class="text-white mb-3">What We Do</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-2">Custom Web Applications</li>
+                    <li class="mb-2">.NET & Python Backend Systems</li>
+                    <li class="mb-2">API Development & Integrations</li>
+                    <li class="mb-2">AI Automation & Agents</li>
+                    <li>Hosting & Deployment</li>
+                </ul>
             </div>
 
             <!-- Contact -->
             <div class="col-lg-4 col-md-12">
-                <h4 class="text-light mb-4">Contact</h4>
+                <h4 class="text-white mb-3">Contact</h4>
+               <p class="mb-2">
+    <i class="fa fa-envelope me-2"></i>
+    <a href="mailto:info@ysify.in" class="text-light me-2" style="cursor:pointer;">
+        info@ysify.in
+    </a>
+    |
+    <a href="mailto:yashvisavaliya3436@gmail.com" class="text-light ms-2" style="cursor:pointer;">
+        yashvisavaliya3436@gmail.com
+    </a>
+</p>
+
                 <p class="mb-2">
-                    <i class="fa fa-envelope me-3"></i>
-                    yashvisavaliya3436@gmail.com
-                </p>
-                <p class="mb-2">
-                    <i class="fa fa-globe me-3"></i>
-                    Available Worldwide (Remote)
+                    <i class="fa fa-globe me-2"></i>
+                    Remote • Worldwide
                 </p>
                 <p class="mb-0">
-                    <i class="fa fa-clock me-3"></i>
-                    Mon – Sun : 08:00 AM – 8:00 PM
+                    <i class="fa fa-clock me-2"></i>
+                    Mon – Sun | 8:00 AM – 8:00 PM
                 </p>
             </div>
 
         </div>
 
-        <!-- Copyright -->
-        <div class="copyright pt-4">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <span class="fw-semi-bold">2025 Yashvi Savaliya</span>. All Rights Reserved.
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    Built with ❤️ by <span class="fw-semi-bold">Yashvi Savaliya</span>
-                </div>
+        <hr class="border-secondary">
+
+        <!-- Bottom -->
+        <div class="row pt-3">
+            <div class="col-md-6 text-center text-md-start">
+                © 2025 <strong>YSIFY</strong>. All Rights Reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                Built & Managed by <strong>Founder, YSIFY — Yashvi Savaliya</strong>
             </div>
         </div>
     </div>
 </div>
 <!-- Footer End -->
+
 
     <!-- Back to Top -->
     <a href="#!" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
