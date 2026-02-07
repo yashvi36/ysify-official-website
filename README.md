@@ -54,13 +54,13 @@ This repository contains a complete multi-page company website, including:
 ## 🚀 Live Website
 
 🔗 **Official Website:**  
-https://yashvi36.github.io/ysify-official-website/
+www.ysify.in
 
 ---
 
 ## 📩 Contact Information
 
-- **Email:** yashvisavaliya3436@gmail.com 
+- **Email:** info@ysify.in
 - **Founder:** Yashvi Savaliya  
 - **Company:** Ysify  
 
