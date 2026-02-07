@@ -1,503 +1,990 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-   <title>YSIFY - www.ysify.com</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+  <head>
+    <meta charset="utf-8" />
+    <title>YSIFY - www.ysify.com</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/favicon.ico" rel="icon" />
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Open+Sans&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+      .review-form-modern {
+        max-width: 420px;
+        margin: 40px auto 0;
+        background: #fff;
+        padding: 30px;
+        border-radius: 18px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+        display: grid;
+        gap: 18px;
+      }
 
-<body>
+      .form-title {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 1px solid #dcdcdc;
+        font-size: 14px;
+        transition:
+          border 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #4f6ef7;
+        box-shadow: 0 0 0 3px rgba(79, 110, 247, 0.15);
+      }
+
+      /* file upload */
+      .file-group input {
+        display: none;
+      }
+
+      .file-label {
+        display: inline-block;
+        background: #f1f3ff;
+        color: #4f6ef7;
+        padding: 10px 14px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .file-hint {
+        display: block;
+        font-size: 12px;
+        color: #888;
+        margin-top: 5px;
+      }
+
+      /* button */
+      .review-btn {
+        background: linear-gradient(135deg, #4f6ef7, #6a82fb);
+        color: #fff;
+        padding: 14px;
+        border-radius: 12px;
+        border: none;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .review-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(79, 110, 247, 0.35);
+      }
+
+      .project-name {
+        font-size: 14px;
+        color: #666;
+      }
+      .testimonials {
+        text-align: center;
+        padding: 80px 10%;
+        background: #fff;
+      }
+
+      .section-tag {
+        color: #4f6ef7;
+        letter-spacing: 2px;
+      }
+
+      .testimonial-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin: 50px 0;
+      }
+
+      .testimonial-card {
+        background: #fff;
+        padding: 35px;
+        width: 320px;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .stars {
+        color: #fbbf24;
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+
+      .review-text {
+        font-style: italic;
+        color: #555;
+        margin-bottom: 25px;
+      }
+
+      .user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .user img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 10px;
+      }
+
+      .user strong {
+        font-size: 16px;
+      }
+
+      .user span {
+        font-size: 13px;
+        color: #777;
+      }
+
+      /* form */
+      .review-form {
+        max-width: 420px;
+        margin: auto;
+        display: grid;
+        gap: 12px;
+      }
+
+      .review-form input,
+      .review-form select,
+      .review-form textarea {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
+
+      .review-form button {
+        background: #4f6ef7;
+        color: #fff;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .review-actions {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .review-actions button {
+        padding: 6px 12px;
+        font-size: 13px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .review-actions .edit-btn {
+        background: #f1f3ff;
+        color: #4f6ef7;
+      }
+
+      .review-actions .delete-btn {
+        background: #ffecec;
+        color: #e53935;
+      }
+    </style>
+  </head>
+
+  <body>
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div
+        class="spinner-border text-primary"
+        role="status"
+        style="width: 3rem; height: 3rem"
+      ></div>
     </div>
     <!-- Spinner End -->
 
-
-  
     <!-- Topbar Start -->
-    <div class="container-fluid bg-secondary top-bar wow fadeIn" data-wow-delay="0.1s">
-        <div class="row align-items-center h-100">
-            <div class="col-lg-4 text-center text-lg-start">
-                <a href="index.html">
-                    <h1 class="display-5 text-primary m-0">YᔕIᖴY</h1>
-                </a>
-            </div>
-            <div class="col-lg-8 d-none d-lg-block">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-end">
-                            <div class="flex-shrink-0 btn-square bg-primary">
-                                <i class="fa fa-phone-alt text-dark"></i>
-                            </div>
-                            <div class="ms-2">
-                                <h6 class="text-primary mb-0">Call Us</h6>
-                                <span class="text-white">+91 99042 30962</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-end">
-                            <div class="flex-shrink-0 btn-square bg-primary">
-                                <i class="fa fa-envelope-open text-dark"></i>
-                            </div>
-                            <div class="ms-2">
-                                <h6 class="text-primary mb-0">Mail Us</h6>
-                                <span class="text-white">info@ysify.in</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-end">
-                            <div class="flex-shrink-0 btn-square bg-primary">
-                                <i class="fa fa-map-marker-alt text-dark"></i>
-                            </div>
-                            <div class="ms-2">
-                                <h6 class="text-primary mb-0">Address</h6>
-                                <span class="text-white">surat, gujarat, india</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div
+      class="container-fluid bg-secondary top-bar wow fadeIn"
+      data-wow-delay="0.1s"
+    >
+      <div class="row align-items-center h-100">
+        <div class="col-lg-4 text-center text-lg-start">
+          <a href="index.html">
+            <h1 class="display-5 text-primary m-0">YᔕIᖴY</h1>
+          </a>
         </div>
+        <div class="col-lg-8 d-none d-lg-block">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="d-flex justify-content-end">
+                <div class="flex-shrink-0 btn-square bg-primary">
+                  <i class="fa fa-phone-alt text-dark"></i>
+                </div>
+                <div class="ms-2">
+                  <h6 class="text-primary mb-0">Call Us</h6>
+                  <span class="text-white">+91 99042 30962</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="d-flex justify-content-end">
+                <div class="flex-shrink-0 btn-square bg-primary">
+                  <i class="fa fa-envelope-open text-dark"></i>
+                </div>
+                <div class="ms-2">
+                  <h6 class="text-primary mb-0">Mail Us</h6>
+                  <span class="text-white">info@ysify.in</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="d-flex justify-content-end">
+                <div class="flex-shrink-0 btn-square bg-primary">
+                  <i class="fa fa-map-marker-alt text-dark"></i>
+                </div>
+                <div class="ms-2">
+                  <h6 class="text-primary mb-0">Address</h6>
+                  <span class="text-white">surat, gujarat, india</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Topbar End -->
 
-
-
-
     <!-- Navbar Start -->
-    <div class="container-fluid bg-secondary px-0 wow fadeIn" data-wow-delay="0.1s">
-        <div class="nav-bar">
-            <nav class="navbar navbar-expand-lg bg-primary navbar-dark px-4 py-lg-0">
-                <h4 class="d-lg-none m-0"></h4>
-                <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                      <div class="navbar-nav me-auto">
-                        <a href="index.html" class="nav-item nav-link ">Home</a>
-                        <a href="about.html" class="nav-item nav-link active">About</a>
-                        <a href="service.html" class="nav-item nav-link">Service</a>
-                        <a href="donation.html" class="nav-item nav-link">Details</a>
-                        <div class="nav-item dropdown">
-                            <a href="#!" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu bg-light m-0">
-                                <a href="event.html" class="dropdown-item">Project Offer</a>
-                                <a href="feature.html" class="dropdown-item">Skill & Faqs</a>
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Projects</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    </div>
-                      <div class="d-flex">
-                    <a class="btn btn-square btn-outline-light me-2" href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/" target="_blank">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a class="btn btn-square btn-outline-light me-2" href="https://github.com/yashvi36" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                   <a class="btn btn-square btn-outline-light" href="https://www.instagram.com/ysify_solution/" target="_blank">
-    <i class="fab fa-instagram"></i>
-</a>
-
+    <div
+      class="container-fluid bg-secondary px-0 wow fadeIn"
+      data-wow-delay="0.1s"
+    >
+      <div class="nav-bar">
+        <nav
+          class="navbar navbar-expand-lg bg-primary navbar-dark px-4 py-lg-0"
+        >
+          <h4 class="d-lg-none m-0"></h4>
+          <button
+            type="button"
+            class="navbar-toggler me-0"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav me-auto">
+              <a href="index.html" class="nav-item nav-link">Home</a>
+              <a href="about.html" class="nav-item nav-link active">About</a>
+              <a href="service.html" class="nav-item nav-link">Service</a>
+              <a href="donation.html" class="nav-item nav-link">Details</a>
+              <div class="nav-item dropdown">
+                <a
+                  href="#!"
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  >Pages</a
+                >
+                <div class="dropdown-menu bg-light m-0">
+                  <a href="event.html" class="dropdown-item">Project Offer</a>
+                  <a href="feature.html" class="dropdown-item">Skill & Faqs</a>
+                  <a href="team.html" class="dropdown-item">Our Team</a>
+                  <a href="testimonial.html" class="dropdown-item">Projects</a>
+                  <a href="404.html" class="dropdown-item">404 Page</a>
                 </div>
-                </div>
-            </nav>
-        </div>
+              </div>
+              <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <div class="d-flex">
+              <a
+                class="btn btn-square btn-outline-light me-2"
+                href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                class="btn btn-square btn-outline-light me-2"
+                href="https://github.com/yashvi36"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                class="btn btn-square btn-outline-light"
+                href="https://www.instagram.com/ysify_solution/"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
     </div>
     <!-- Navbar End -->
 
-
-
-   <!-- About Start -->
-<div class="container-fluid py-5">
-    <div class="container">
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+      <div class="container">
         <div class="row g-5 align-items-center">
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.2s">
-                <div class="about-img">
-                    <img class="img-fluid w-100" src="img/about1.png" alt="About Our Technology Company">
-                </div>
+          <div class="col-lg-6 wow fadeIn" data-wow-delay="0.2s">
+            <div class="about-img">
+              <img
+                class="img-fluid w-100"
+                src="img/about1.png"
+                alt="About Our Technology Company"
+              />
             </div>
-            <div class="col-lg-6">
-                <p class="section-title bg-white text-start text-primary pe-3">About Us</p>
+          </div>
+          <div class="col-lg-6">
+            <p class="section-title bg-white text-start text-primary pe-3">
+              About Us
+            </p>
 
-                <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">
-                    Technology Solutions Built for Growth
-                </h1>
+            <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">
+              Technology Solutions Built for Growth
+            </h1>
 
-                <p class="mb-4 wow fadeIn" data-wow-delay="0.3s">
-                    We are a technology-driven solutions company specializing in designing,
-                    developing, and deploying scalable digital products. Our focus is on building
-                    reliable software systems that help businesses streamline operations,
-                    improve efficiency, and accelerate growth.
-                </p>
+            <p class="mb-4 wow fadeIn" data-wow-delay="0.3s">
+              We are a technology-driven solutions company specializing in
+              designing, developing, and deploying scalable digital products.
+              Our focus is on building reliable software systems that help
+              businesses streamline operations, improve efficiency, and
+              accelerate growth.
+            </p>
 
-                <div class="row g-4 pt-2">
+            <div class="row g-4 pt-2">
+              <!-- Left Column -->
+              <div class="col-sm-6 wow fadeIn" data-wow-delay="0.4s">
+                <div class="h-100">
+                  <h3>What We Deliver</h3>
+                  <p>
+                    We provide end-to-end software development services with a
+                    strong emphasis on performance, security, and long-term
+                    scalability.
+                  </p>
 
-                    <!-- Left Column -->
-                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.4s">
-                        <div class="h-100">
-                            <h3>What We Deliver</h3>
-                            <p>
-                                We provide end-to-end software development services with a strong
-                                emphasis on performance, security, and long-term scalability.
-                            </p>
-
-                            <p class="text-dark">
-                                <i class="fa fa-check text-primary me-2"></i>
-                                Custom Web & Application Development
-                            </p>
-                            <p class="text-dark">
-                                <i class="fa fa-check text-primary me-2"></i>
-                                Backend Systems, APIs & Integrations
-                            </p>
-                            <p class="text-dark mb-0">
-                                <i class="fa fa-check text-primary me-2"></i>
-                                AI Automation & Intelligent Workflows
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Right Highlight Card -->
-                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="h-100 bg-primary p-4 text-center">
-                            <p class="fs-5 text-dark">
-                                From early-stage startups to growing businesses, we partner with
-                                clients to transform ideas into production-ready software
-                                solutions using modern technologies.
-                            </p>
-                            <a class="btn btn-secondary py-2 px-4" href="contact.html">
-                                Let’s Build Together
-                            </a>
-                        </div>
-                    </div>
-
+                  <p class="text-dark">
+                    <i class="fa fa-check text-primary me-2"></i>
+                    Custom Web & Application Development
+                  </p>
+                  <p class="text-dark">
+                    <i class="fa fa-check text-primary me-2"></i>
+                    Backend Systems, APIs & Integrations
+                  </p>
+                  <p class="text-dark mb-0">
+                    <i class="fa fa-check text-primary me-2"></i>
+                    AI Automation & Intelligent Workflows
+                  </p>
                 </div>
+              </div>
 
+              <!-- Right Highlight Card -->
+              <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+                <div class="h-100 bg-primary p-4 text-center">
+                  <p class="fs-5 text-dark">
+                    From early-stage startups to growing businesses, we partner
+                    with clients to transform ideas into production-ready
+                    software solutions using modern technologies.
+                  </p>
+                  <a class="btn btn-secondary py-2 px-4" href="contact.html">
+                    Let’s Build Together
+                  </a>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<!-- About End -->
+    <!-- About End -->
 
+    <section class="testimonials">
+      <h1 class="section-tag">TESTIMONIALS</h1>
+      <h2>What they are saying about us</h2>
 
-<!-- Banner Start -->
-<div class="container-fluid banner py-5">
-    <div class="container">
+      <!-- ✅ Reviews show thase aa div ma -->
+      <div id="testimonialWrapper" class="testimonial-wrapper"></div>
+
+      <!-- ✅ Review Form -->
+      <form id="reviewForm" class="review-form-modern">
+        <h4 class="form-title">Share your experience</h4>
+
+        <div class="form-group">
+          <input type="text" id="name" placeholder="Your Name" required />
+        </div>
+
+        <div class="form-group">
+          <input type="text" id="role" placeholder="Role / Project" required />
+        </div>
+
+        <div class="form-group file-group">
+          <label class="file-label">
+            Upload Photo
+            <input type="file" id="photo" accept="image/*" required />
+          </label>
+          <span class="file-hint">JPG / PNG only</span>
+        </div>
+
+        <div class="form-group">
+          <select id="stars" required>
+            <option value="">Select Rating</option>
+            <option value="5">★★★★★ Excellent</option>
+            <option value="4">★★★★ Very Good</option>
+            <option value="3">★★★ Good</option>
+            <option value="2">★★ Fair</option>
+            <option value="1">★ Poor</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <textarea
+            id="review"
+            placeholder="Write your review..."
+            rows="4"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="review-btn">Add Review</button>
+      </form>
+    </section>
+
+    <!-- Banner Start -->
+    <div class="container-fluid banner py-5">
+      <div class="container">
         <div class="banner-inner bg-light p-5 wow fadeIn" data-wow-delay="0.1s">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 py-5 text-center">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 py-5 text-center">
+              <h1 class="display-6 wow fadeIn" data-wow-delay="0.3s">
+                Let’s Build Your Next Digital Product
+              </h1>
 
-                    <h1 class="display-6 wow fadeIn" data-wow-delay="0.3s">
-                        Let’s Build Your Next Digital Product
-                    </h1>
+              <p class="fs-5 mb-4 wow fadeIn" data-wow-delay="0.5s">
+                Whether you’re starting from an idea or scaling an existing
+                system, we help businesses design, build, and deploy reliable
+                software solutions.
+              </p>
 
-                    <p class="fs-5 mb-4 wow fadeIn" data-wow-delay="0.5s">
-                        Whether you’re starting from an idea or scaling an existing system,
-                        we help businesses design, build, and deploy reliable software solutions.
-                    </p>
-
-                    <div class="d-flex justify-content-center wow fadeIn" data-wow-delay="0.7s">
-                        <a class="btn btn-primary py-3 px-4 me-3" href="contact.html">
-                            Start a Project
-                        </a>
-                        <a class="btn btn-secondary py-3 px-4" href="contact.html">
-                            Talk to an Expert
-                        </a>
-                    </div>
-
-                </div>
+              <div
+                class="d-flex justify-content-center wow fadeIn"
+                data-wow-delay="0.7s"
+              >
+                <a class="btn btn-primary py-3 px-4 me-3" href="contact.html">
+                  Start a Project
+                </a>
+                <a class="btn btn-secondary py-3 px-4" href="contact.html">
+                  Talk to an Expert
+                </a>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<!-- Banner End -->
+    <!-- Banner End -->
 
-
-   
-  <!-- Features Start -->
-<div class="container-fluid py-5">
-    <div class="container">
+    <!-- Features Start -->
+    <div class="container-fluid py-5">
+      <div class="container">
         <div class="row g-5 align-items-center">
-
-            <!-- Stats -->
-            <div class="col-lg-6">
-                <div class="rounded overflow-hidden">
-                    <div class="row g-0">
-
-                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
-                            <div class="text-center bg-primary py-5 px-4 h-100">
-                                <i class="fa fa-user fa-3x text-secondary mb-3"></i>
-                                <h1 class="display-5 mb-0">Founder-Led</h1>
-                                <span class="text-dark">Technology Studio</span>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
-                            <div class="text-center bg-secondary py-5 px-4 h-100">
-                                <i class="fa fa-code fa-3x text-primary mb-3"></i>
-                                <h1 class="display-5 text-white mb-0">10+</h1>
-                                <span class="text-white">Solutions Delivered</span>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
-                            <div class="text-center bg-secondary py-5 px-4 h-100">
-                                <i class="fa fa-laptop-code fa-3x text-primary mb-3"></i>
-                                <h1 class="display-5 text-white mb-0">100%</h1>
-                                <span class="text-white">Hands-On Engineering</span>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
-                            <div class="text-center bg-primary py-5 px-4 h-100">
-                                <i class="fa fa-comments fa-3x text-secondary mb-3"></i>
-                                <h1 class="display-5 mb-0">Direct</h1>
-                                <span class="text-dark">Decision-Maker Access</span>
-                            </div>
-                        </div>
-
-                    </div>
+          <!-- Stats -->
+          <div class="col-lg-6">
+            <div class="rounded overflow-hidden">
+              <div class="row g-0">
+                <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
+                  <div class="text-center bg-primary py-5 px-4 h-100">
+                    <i class="fa fa-user fa-3x text-secondary mb-3"></i>
+                    <h1 class="display-5 mb-0">Founder-Led</h1>
+                    <span class="text-dark">Technology Studio</span>
+                  </div>
                 </div>
-            </div>
 
-            <!-- Content -->
-            <div class="col-lg-6">
-                <p class="section-title bg-white text-start text-primary pe-3">Why Choose Us</p>
-
-                <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">
-                    Why Businesses Partner with YSIFY
-                </h1>
-
-                <p class="mb-4 wow fadeIn" data-wow-delay="0.3s">
-                    YSIFY operates as a founder-led technology studio focused on delivering
-                    high-quality, scalable software solutions. Clients work directly with
-                    experienced engineers, ensuring clarity, accountability, and faster execution
-                    without unnecessary overhead.
-                </p>
-
-                <p class="text-dark wow fadeIn" data-wow-delay="0.4s">
-                    <i class="fa fa-check text-primary me-2"></i>
-                    Direct access to technical decision-makers
-                </p>
-
-                <p class="text-dark wow fadeIn" data-wow-delay="0.5s">
-                    <i class="fa fa-check text-primary me-2"></i>
-                    Clean architecture, scalable systems, and secure code
-                </p>
-
-                <p class="text-dark wow fadeIn" data-wow-delay="0.6s">
-                    <i class="fa fa-check text-primary me-2"></i>
-                    End-to-end ownership from planning to deployment
-                </p>
-
-                <div class="d-flex mt-4 wow fadeIn" data-wow-delay="0.7s">
-                    <a class="btn btn-primary py-3 px-4 me-3" href="contact.html">
-                        Start a Project
-                    </a>
-                    <a class="btn btn-secondary py-3 px-4" href="contact.html">
-                        Contact Us
-                    </a>
+                <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
+                  <div class="text-center bg-secondary py-5 px-4 h-100">
+                    <i class="fa fa-code fa-3x text-primary mb-3"></i>
+                    <h1 class="display-5 text-white mb-0">10+</h1>
+                    <span class="text-white">Solutions Delivered</span>
+                  </div>
                 </div>
-            </div>
 
+                <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+                  <div class="text-center bg-secondary py-5 px-4 h-100">
+                    <i class="fa fa-laptop-code fa-3x text-primary mb-3"></i>
+                    <h1 class="display-5 text-white mb-0">100%</h1>
+                    <span class="text-white">Hands-On Engineering</span>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
+                  <div class="text-center bg-primary py-5 px-4 h-100">
+                    <i class="fa fa-comments fa-3x text-secondary mb-3"></i>
+                    <h1 class="display-5 mb-0">Direct</h1>
+                    <span class="text-dark">Decision-Maker Access</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="col-lg-6">
+            <p class="section-title bg-white text-start text-primary pe-3">
+              Why Choose Us
+            </p>
+
+            <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">
+              Why Businesses Partner with YSIFY
+            </h1>
+
+            <p class="mb-4 wow fadeIn" data-wow-delay="0.3s">
+              YSIFY operates as a founder-led technology studio focused on
+              delivering high-quality, scalable software solutions. Clients work
+              directly with experienced engineers, ensuring clarity,
+              accountability, and faster execution without unnecessary overhead.
+            </p>
+
+            <p class="text-dark wow fadeIn" data-wow-delay="0.4s">
+              <i class="fa fa-check text-primary me-2"></i>
+              Direct access to technical decision-makers
+            </p>
+
+            <p class="text-dark wow fadeIn" data-wow-delay="0.5s">
+              <i class="fa fa-check text-primary me-2"></i>
+              Clean architecture, scalable systems, and secure code
+            </p>
+
+            <p class="text-dark wow fadeIn" data-wow-delay="0.6s">
+              <i class="fa fa-check text-primary me-2"></i>
+              End-to-end ownership from planning to deployment
+            </p>
+
+            <div class="d-flex mt-4 wow fadeIn" data-wow-delay="0.7s">
+              <a class="btn btn-primary py-3 px-4 me-3" href="contact.html">
+                Start a Project
+              </a>
+              <a class="btn btn-secondary py-3 px-4" href="contact.html">
+                Contact Us
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<!-- Features End -->
+    <!-- Features End -->
 
-
-
- <!-- Newsletter Start -->
-<div class="container-fluid bg-primary py-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container">
+    <!-- Newsletter Start -->
+    <div
+      class="container-fluid bg-primary py-5 mt-5 wow fadeIn"
+      data-wow-delay="0.1s"
+    >
+      <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-7 text-center wow fadeIn" data-wow-delay="0.5s">
-                <h1 class="display-6 mb-4">Subscribe to Our Newsletter</h1>
+          <div class="col-lg-7 text-center wow fadeIn" data-wow-delay="0.5s">
+            <h1 class="display-6 mb-4">Subscribe to Our Newsletter</h1>
 
-                <div class="position-relative w-100 mb-2">
-                    <input
-                        id="newsletterEmail"
-                        class="form-control border-0 w-100 ps-4 pe-5"
-                        type="email"
-                        placeholder="Enter your email address"
-                        style="height: 60px;"
-                    />
+            <div class="position-relative w-100 mb-2">
+              <input
+                id="newsletterEmail"
+                class="form-control border-0 w-100 ps-4 pe-5"
+                type="email"
+                placeholder="Enter your email address"
+                style="height: 60px"
+              />
 
-                    <button
-                        type="button"
-                        onclick="sendNewsletterEmail()"
-                        class="btn btn-lg-square shadow-none position-absolute top-0 end-0 mt-2 me-2">
-                        <i class="fa fa-paper-plane text-primary fs-4"></i>
-                    </button>
-                </div>
-
-                <p class="mb-0">We respect your inbox. No spam, ever.</p>
+              <button
+                type="button"
+                onclick="sendNewsletterEmail()"
+                class="btn btn-lg-square shadow-none position-absolute top-0 end-0 mt-2 me-2"
+              >
+                <i class="fa fa-paper-plane text-primary fs-4"></i>
+              </button>
             </div>
+
+            <p class="mb-0">We respect your inbox. No spam, ever.</p>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<!-- Newsletter End -->
+    <!-- Newsletter End -->
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-<script>
-(function () {
-  emailjs.init("plwxXwmIjqRkmoVP8"); // PUBLIC KEY
-})();
+    <script>
+      (function () {
+        emailjs.init("plwxXwmIjqRkmoVP8"); // PUBLIC KEY
+      })();
 
-function sendNewsletterEmail() {
-    const email = document.getElementById("newsletterEmail").value.trim();
+      function sendNewsletterEmail() {
+        const email = document.getElementById("newsletterEmail").value.trim();
 
-    if (!email || !email.includes("@")) {
-        alert("❌ Please enter a valid email address");
-        return;
-    }
-
-    emailjs.send(
-        "service_kriakco",
-        "template_m0q6e97", // ✅ YOUR TEMPLATE ID
-        {
-            email: email
+        if (!email || !email.includes("@")) {
+          alert("❌ Please enter a valid email address");
+          return;
         }
-    )
-    .then(() => {
-        alert("✅ Successfully subscribed!");
-        document.getElementById("newsletterEmail").value = "";
-    })
-    .catch((error) => {
-        console.error("EmailJS Error:", error);
-        alert("❌ Subscription failed. Please try again.");
-    });
-}
-</script>
 
+        emailjs
+          .send(
+            "service_kriakco",
+            "template_m0q6e97", // ✅ YOUR TEMPLATE ID
+            {
+              email: email,
+            },
+          )
+          .then(() => {
+            alert("✅ Successfully subscribed!");
+            document.getElementById("newsletterEmail").value = "";
+          })
+          .catch((error) => {
+            console.error("EmailJS Error:", error);
+            alert("❌ Subscription failed. Please try again.");
+          });
+      }
+    </script>
 
-
-
-  <!-- Footer Start -->
-<div class="container-fluid footer py-5 bg-dark text-light wow fadeIn" data-wow-delay="0.1s">
-    <div class="container">
+    <!-- Footer Start -->
+    <div
+      class="container-fluid footer py-5 bg-dark text-light wow fadeIn"
+      data-wow-delay="0.1s"
+    >
+      <div class="container">
         <div class="row g-5 py-4">
+          <!-- Brand / About -->
+          <div class="col-lg-4 col-md-6">
+            <h3 class="text-white mb-3">YSIFY</h3>
+            <p class="mb-3">
+              Founder-led software studio building clean, scalable, and secure
+              web & backend solutions for startups and growing businesses
+              worldwide.
+            </p>
+            <p class="mb-4"><strong>Founder:</strong> Yashvi Savaliya</p>
 
-            <!-- Brand / About -->
-            <div class="col-lg-4 col-md-6">
-                <h3 class="text-white mb-3">YSIFY</h3>
-                <p class="mb-3">
-                    Founder-led software studio building clean, scalable,
-                    and secure web & backend solutions for startups
-                    and growing businesses worldwide.
-                </p>
-                <p class="mb-4">
-                    <strong>Founder:</strong> Yashvi Savaliya
-                </p>
-
-                <div class="d-flex">
-                    <a class="btn btn-square btn-outline-light me-2" href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/" target="_blank">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a class="btn btn-square btn-outline-light me-2" href="https://github.com/yashvi36" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                   <a class="btn btn-square btn-outline-light" href="https://www.instagram.com/ysify_solution/" target="_blank">
-    <i class="fab fa-instagram"></i>
-</a>
-
-                </div>
+            <div class="d-flex">
+              <a
+                class="btn btn-square btn-outline-light me-2"
+                href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                class="btn btn-square btn-outline-light me-2"
+                href="https://github.com/yashvi36"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                class="btn btn-square btn-outline-light"
+                href="https://www.instagram.com/ysify_solution/"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
             </div>
+          </div>
 
-            <!-- Services -->
-            <div class="col-lg-4 col-md-6">
-                <h4 class="text-white mb-3">What We Do</h4>
-                <ul class="list-unstyled">
-                    <li class="mb-2">Custom Web Applications</li>
-                    <li class="mb-2">.NET & Python Backend Systems</li>
-                    <li class="mb-2">API Development & Integrations</li>
-                    <li class="mb-2">AI Automation & Agents</li>
-                    <li>Hosting & Deployment</li>
-                </ul>
-            </div>
+          <!-- Services -->
+          <div class="col-lg-4 col-md-6">
+            <h4 class="text-white mb-3">What We Do</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2">Custom Web Applications</li>
+              <li class="mb-2">.NET & Python Backend Systems</li>
+              <li class="mb-2">API Development & Integrations</li>
+              <li class="mb-2">AI Automation & Agents</li>
+              <li>Hosting & Deployment</li>
+            </ul>
+          </div>
 
-            <!-- Contact -->
-            <div class="col-lg-4 col-md-12">
-                <h4 class="text-white mb-3">Contact</h4>
-               <p class="mb-2">
-    <i class="fa fa-envelope me-2"></i>
-    <a href="mailto:info@ysify.in" class="text-light me-2" style="cursor:pointer;">
-        info@ysify.in
-    </a>
-    |
-    <a href="mailto:yashvisavaliya3436@gmail.com" class="text-light ms-2" style="cursor:pointer;">
-        yashvisavaliya3436@gmail.com
-    </a>
-</p>
+          <!-- Contact -->
+          <div class="col-lg-4 col-md-12">
+            <h4 class="text-white mb-3">Contact</h4>
+            <p class="mb-2">
+              <i class="fa fa-envelope me-2"></i>
+              <a
+                href="mailto:info@ysify.in"
+                class="text-light me-2"
+                style="cursor: pointer"
+              >
+                info@ysify.in
+              </a>
+              |
+              <a
+                href="mailto:yashvisavaliya3436@gmail.com"
+                class="text-light ms-2"
+                style="cursor: pointer"
+              >
+                yashvisavaliya3436@gmail.com
+              </a>
+            </p>
 
-                <p class="mb-2">
-                    <i class="fa fa-globe me-2"></i>
-                    Remote • Worldwide
-                </p>
-                <p class="mb-0">
-                    <i class="fa fa-clock me-2"></i>
-                    Mon – Sun | 8:00 AM – 8:00 PM
-                </p>
-            </div>
-
+            <p class="mb-2">
+              <i class="fa fa-globe me-2"></i>
+              Remote • Worldwide
+            </p>
+            <p class="mb-0">
+              <i class="fa fa-clock me-2"></i>
+              Mon – Sun | 8:00 AM – 8:00 PM
+            </p>
+          </div>
         </div>
 
-        <hr class="border-secondary">
+        <hr class="border-secondary" />
 
         <!-- Bottom -->
         <div class="row pt-3">
-            <div class="col-md-6 text-center text-md-start">
-                © 2025 <strong>YSIFY</strong>. All Rights Reserved.
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-                Built & Managed by <strong>Founder, YSIFY — Yashvi Savaliya</strong>
-            </div>
+          <div class="col-md-6 text-center text-md-start">
+            © 2025 <strong>YSIFY</strong>. All Rights Reserved.
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            Built & Managed by <strong>Founder, YSIFY — Yashvi Savaliya</strong>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<!-- Footer End -->
-
-
-
+    <!-- Footer End -->
 
     <!-- Back to Top -->
-    <a href="#!" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="#!" class="btn btn-lg btn-primary btn-lg-square back-to-top"
+      ><i class="bi bi-arrow-up"></i
+    ></a>
 
+    <script>
+      let EDITING_REVIEW_ID = null;
+
+      const STORAGE_KEY = "ysify_testimonials";
+      const USER_KEY = "ysify_user_id";
+
+      /* ================================
+   USER ID (per browser)
+================================ */
+      function getCurrentUserId() {
+        let userId = localStorage.getItem(USER_KEY);
+        if (!userId) {
+          userId = crypto.randomUUID();
+          localStorage.setItem(USER_KEY, userId);
+        }
+        return userId;
+      }
+      const CURRENT_USER_ID = getCurrentUserId();
+
+      /* ================================
+   LOAD REVIEWS
+================================ */
+      document.addEventListener("DOMContentLoaded", () => {
+        const reviews = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        reviews.forEach(addReviewToUI);
+      });
+
+      /* ================================
+   FORM SUBMIT (ADD + UPDATE)
+================================ */
+      document
+        .getElementById("reviewForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value.trim();
+          const role = document.getElementById("role").value.trim();
+          const stars = document.getElementById("stars").value;
+          const reviewText = document.getElementById("review").value.trim();
+          const photoInput = document.getElementById("photo");
+          const photoFile = photoInput.files[0];
+
+          let reviews = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+          // ================= EDIT MODE =================
+          if (EDITING_REVIEW_ID) {
+            const index = reviews.findIndex((r) => r.id === EDITING_REVIEW_ID);
+            if (index === -1) return;
+
+            // image change kari hoy to j read
+            if (photoFile) {
+              const reader = new FileReader();
+              reader.onload = function () {
+                reviews[index] = {
+                  ...reviews[index],
+                  name,
+                  role,
+                  stars,
+                  review: reviewText,
+                  image: reader.result,
+                };
+                finalizeUpdate(reviews);
+              };
+              reader.readAsDataURL(photoFile);
+            } else {
+              reviews[index] = {
+                ...reviews[index],
+                name,
+                role,
+                stars,
+                review: reviewText,
+              };
+              finalizeUpdate(reviews);
+            }
+          }
+          // ================= ADD MODE =================
+          else {
+            if (!photoFile) {
+              alert("Please upload photo");
+              return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function () {
+              reviews.unshift({
+                id: crypto.randomUUID(),
+                ownerId: CURRENT_USER_ID,
+                name,
+                role,
+                stars,
+                review: reviewText,
+                image: reader.result,
+              });
+              finalizeUpdate(reviews);
+            };
+            reader.readAsDataURL(photoFile);
+          }
+        });
+
+      /* ================================
+   SAVE + REFRESH UI
+================================ */
+      function finalizeUpdate(reviews) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
+
+        const wrapper = document.getElementById("testimonialWrapper");
+        wrapper.innerHTML = "";
+        reviews.forEach(addReviewToUI);
+
+        EDITING_REVIEW_ID = null;
+        document.getElementById("reviewForm").reset();
+        document.querySelector(".review-btn").innerText = "Add Review";
+      }
+
+      /* ================================
+   RENDER CARD
+================================ */
+      function addReviewToUI(data) {
+        const starIcons = "★".repeat(data.stars) + "☆".repeat(5 - data.stars);
+        const canEdit = data.ownerId === CURRENT_USER_ID;
+
+        const card = `
+    <div class="testimonial-card" data-id="${data.id}">
+      <div class="stars">${starIcons}</div>
+      <p class="review-text">"${data.review}"</p>
+
+      <div class="user">
+        <img src="${data.image}" alt="${data.name}">
+        <strong>${data.name}</strong>
+        <span>${data.role}</span>
+      </div>
+
+      ${
+        canEdit
+          ? `
+        <div class="review-actions">
+          <button class="edit-btn" onclick="editReview('${data.id}')">Edit</button>
+          <button class="delete-btn" onclick="deleteReview('${data.id}')">Delete</button>
+        </div>
+      `
+          : ``
+      }
+    </div>
+  `;
+
+        document
+          .getElementById("testimonialWrapper")
+          .insertAdjacentHTML("afterbegin", card);
+      }
+
+      /* ================================
+   DELETE
+================================ */
+      function deleteReview(id) {
+        if (!confirm("Delete this review?")) return;
+
+        let reviews = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        reviews = reviews.filter((r) => r.id !== id);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
+
+        document.querySelector(`[data-id="${id}"]`)?.remove();
+      }
+
+      /* ================================
+   EDIT
+================================ */
+      function editReview(id) {
+        let reviews = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        const review = reviews.find((r) => r.id === id);
+        if (!review) return;
+
+        document.getElementById("name").value = review.name;
+        document.getElementById("role").value = review.role;
+        document.getElementById("stars").value = review.stars;
+        document.getElementById("review").value = review.review;
+
+        EDITING_REVIEW_ID = id;
+        document.querySelector(".review-btn").innerText = "Update Review";
+      }
+    </script>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -510,6 +997,5 @@ function sendNewsletterEmail() {
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
-
+  </body>
 </html>
