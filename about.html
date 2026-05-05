@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>About Us — NexaCore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+
+:root {
+  --bg: #080c14;
+  --bg2: #0d1220;
+  --bg3: #111827;
+  --card: #0f1623;
+  --card2: #141d2e;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --text: #f0f4ff;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6366f1;
+  --accent2: #818cf8;
+  --accentRGB: 99,102,241;
+  --accent-glow: rgba(99,102,241,0.25);
+  --cyan: #06b6d4;
+  --green: #10b981;
+  --amber: #f59e0b;
+  --pink: #ec4899;
+  --r4: 4px;
+  --r8: 8px;
+  --r12: 12px;
+  --r16: 16px;
+  --r24: 24px;
+  --r32: 32px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --shadow-lg: 0 16px 64px rgba(0,0,0,0.5);
+  --font-head: 'Cabinet Grotesk', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+}
+[data-theme="light"] {
+  --bg: #f8faff;
+  --bg2: #f0f4ff;
+  --bg3: #e8eeff;
+  --card: #ffffff;
+  --card2: #f4f6ff;
+  --border: rgba(0,0,0,0.07);
+  --border2: rgba(0,0,0,0.12);
+  --text: #0f172a;
+  --text2: #334155;
+  --text3: #64748b;
+  --accent-glow: rgba(99,102,241,0.15);
+  --shadow: 0 4px 24px rgba(99,102,241,0.1);
+  --shadow-lg: 0 16px 64px rgba(99,102,241,0.15);
+}
+
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;transition:background 0.3s,color 0.3s;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:99px;}
+
+/* ─── CURSOR ─── */
+.cursor{position:fixed;width:12px;height:12px;border-radius:50%;background:var(--accent);pointer-events:none;z-index:9999;transition:transform 0.1s;mix-blend-mode:difference;}
+.cursor-ring{position:fixed;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--accent);pointer-events:none;z-index:9998;transition:all 0.18s ease;}
+
+/* ─── NAVBAR ─── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 32px;transition:all 0.3s;}
+#nav.scrolled{background:rgba(8,12,20,0.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+[data-theme="light"] #nav.scrolled{background:rgba(248,250,255,0.92);}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-hex{width:38px;height:38px;background:var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:1rem;font-weight:900;color:#fff;box-shadow:0 0 20px var(--accent-glow);}
+.logo-name{font-family:var(--font-head);font-size:1.2rem;font-weight:900;color:var(--text);letter-spacing:-0.03em;}
+.logo-name em{color:var(--accent);font-style:normal;}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-links a{color:var(--text2);text-decoration:none;padding:7px 14px;border-radius:var(--r8);font-size:0.87rem;font-weight:500;transition:all 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--border);}
+.nav-actions{display:flex;align-items:center;gap:10px;}
+.theme-toggle{width:40px;height:40px;border-radius:var(--r8);background:var(--card);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text2);transition:all 0.2s;}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent);}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:var(--r8);font-size:0.88rem;font-weight:600;cursor:pointer;border:none;text-decoration:none;transition:all 0.22s;font-family:var(--font-body);}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 0 20px var(--accent-glow);}
+.btn-primary:hover{background:#4f52d9;transform:translateY(-2px);box-shadow:0 0 32px rgba(var(--accentRGB),0.4);}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border2);}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-glow);}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.ham span{display:block;width:22px;height:2px;background:var(--text2);border-radius:99px;transition:all 0.22s;}
+
+/* ─── MOBILE MENU ─── */
+.mob-menu{display:none;position:fixed;top:72px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:20px 28px 28px;z-index:999;flex-direction:column;gap:4px;}
+.mob-menu.open{display:flex;}
+.mob-menu a{color:var(--text2);text-decoration:none;font-size:1rem;font-weight:500;padding:12px 14px;border-radius:var(--r12);transition:all 0.16s;}
+.mob-menu a:hover{background:var(--card);color:var(--accent);}
+
+/* ─── GLOBAL ─── */
+.section{padding:100px 0;}
+.container{max-width:1280px;margin:0 auto;padding:0 32px;}
+.sh{text-align:center;margin-bottom:72px;}
+.tag-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(var(--accentRGB),0.1);border:1px solid rgba(var(--accentRGB),0.25);color:var(--accent2);padding:6px 16px;border-radius:99px;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;font-family:var(--font-head);margin-bottom:16px;}
+.tag-pill i{font-size:0.68rem;}
+.sh h2{font-family:var(--font-head);font-size:clamp(2rem,4vw,3.2rem);font-weight:900;letter-spacing:-0.04em;line-height:1.08;margin-bottom:16px;}
+.sh p{color:var(--text2);font-size:1.02rem;max-width:500px;margin:0 auto;line-height:1.75;}
+.g-text{background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* ─── FADE IN ─── */
+.fi{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fi.in{opacity:1;transform:none;}
+
+/* ─── PAGE HERO / BANNER ─── */
+#page-hero{min-height:72vh;display:flex;align-items:center;padding:120px 32px 80px;position:relative;overflow:hidden;}
+.hero-orbs{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orb-float 8s ease-in-out infinite;}
+.orb1{width:600px;height:600px;background:radial-gradient(circle,rgba(99,102,241,0.18),transparent 70%);top:-200px;right:-100px;}
+.orb2{width:400px;height:400px;background:radial-gradient(circle,rgba(6,182,212,0.12),transparent 70%);bottom:-100px;left:-100px;animation-delay:-4s;}
+.orb3{width:300px;height:300px;background:radial-gradient(circle,rgba(236,72,153,0.1),transparent 70%);top:40%;left:20%;animation-delay:-2s;}
+@keyframes orb-float{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(20px,-30px) scale(1.05);}}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+[data-theme="light"] .hero-grid-bg{background-image:linear-gradient(rgba(99,102,241,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,0.06) 1px,transparent 1px);}
+
+.page-hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:2;width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.breadcrumb{display:inline-flex;align-items:center;gap:8px;color:var(--text3);font-size:0.8rem;font-weight:500;margin-bottom:24px;}
+.breadcrumb a{color:var(--text3);text-decoration:none;transition:color 0.2s;}
+.breadcrumb a:hover{color:var(--accent2);}
+.breadcrumb i{font-size:0.6rem;}
+.page-hero-inner h1{font-family:var(--font-head);font-size:clamp(3rem,6vw,5rem);font-weight:900;letter-spacing:-0.05em;line-height:1.03;margin-bottom:22px;}
+.page-hero-inner p{color:var(--text2);font-size:1.1rem;max-width:600px;line-height:1.8;margin-bottom:40px;}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.hero-tag{padding:6px 16px;border-radius:99px;font-size:0.78rem;font-weight:600;font-family:var(--font-head);border:1px solid;}
+
+/* ─── WHO WE ARE ─── */
+#who-we-are{background:var(--bg2);}
+.wwa-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.wwa-vis{position:relative;}
+.wwa-img{width:100%;aspect-ratio:4/3;background:var(--card);border:1px solid var(--border);border-radius:var(--r24);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;}
+.wwa-img-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:32px 32px;}
+[data-theme="light"] .wwa-img-grid{background-image:linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px);}
+.wwa-img-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:24px;width:100%;}
+.mini-stat{background:var(--card2);border:1px solid var(--border2);border-radius:var(--r12);padding:16px 20px;text-align:center;}
+.mini-stat .n{font-family:var(--font-head);font-size:1.6rem;font-weight:900;color:var(--accent2);letter-spacing:-0.04em;}
+.mini-stat .l{font-size:0.72rem;color:var(--text3);font-weight:600;margin-top:2px;}
+.exp-badge{position:absolute;bottom:-18px;right:-18px;background:linear-gradient(135deg,var(--accent),#4338ca);border-radius:var(--r16);padding:20px 24px;text-align:center;box-shadow:0 12px 40px rgba(var(--accentRGB),0.35);}
+.exp-badge .n{font-family:var(--font-head);font-size:2rem;font-weight:900;color:#fff;letter-spacing:-0.04em;}
+.exp-badge .l{font-size:0.72rem;color:rgba(255,255,255,0.7);font-weight:600;}
+.wwa-text h2{font-family:var(--font-head);font-size:clamp(1.8rem,2.8vw,2.6rem);font-weight:900;letter-spacing:-0.04em;line-height:1.12;margin-bottom:16px;}
+.wwa-text p{color:var(--text2);font-size:0.95rem;line-height:1.8;margin-bottom:12px;}
+.feat-list{margin:24px 0 32px;display:flex;flex-direction:column;gap:12px;}
+.feat-item{display:flex;align-items:center;gap:12px;}
+.feat-check{width:22px;height:22px;border-radius:50%;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.feat-check i{color:#10b981;font-size:0.65rem;}
+.feat-item span{color:var(--text2);font-size:0.93rem;font-weight:500;}
+
+/* ─── MISSION & VISION ─── */
+#mission-vision{background:var(--bg);}
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.mv-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r24);padding:44px 40px;position:relative;overflow:hidden;transition:all 0.25s;}
+.mv-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity 0.25s;}
+.mv-card.accent::before{background:linear-gradient(135deg,rgba(99,102,241,0.07),transparent);}
+.mv-card.cyan::before{background:linear-gradient(135deg,rgba(6,182,212,0.07),transparent);}
+.mv-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.mv-card:hover::before{opacity:1;}
+.mv-card.accent:hover{border-color:rgba(var(--accentRGB),0.3);}
+.mv-card.cyan:hover{border-color:rgba(6,182,212,0.3);}
+.mv-icon{width:60px;height:60px;border-radius:var(--r16);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:24px;border:1px solid;}
+.mv-card h3{font-family:var(--font-head);font-size:1.4rem;font-weight:900;letter-spacing:-0.035em;margin-bottom:14px;}
+.mv-card p{color:var(--text2);font-size:0.95rem;line-height:1.8;}
+
+/* ─── STATS BAND ─── */
+.stats-band{background:linear-gradient(135deg,rgba(var(--accentRGB),0.08),rgba(6,182,212,0.05));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 0;}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.stat-item{text-align:center;padding:0 20px;border-right:1px solid var(--border);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:var(--font-head);font-size:2.8rem;font-weight:900;letter-spacing:-0.06em;background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-label{font-size:0.82rem;color:var(--text3);font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em;}
+
+/* ─── WHY CHOOSE US ─── */
+#why-us{background:var(--bg2);}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r16);padding:32px 28px;transition:all 0.25s;position:relative;overflow:hidden;}
+.why-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(var(--accentRGB),0.06),transparent);opacity:0;transition:opacity 0.25s;}
+.why-card:hover{border-color:rgba(var(--accentRGB),0.35);transform:translateY(-6px);box-shadow:0 20px 60px rgba(var(--accentRGB),0.15);}
+.why-card:hover::before{opacity:1;}
+.why-icon{width:52px;height:52px;border-radius:var(--r12);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:20px;border:1px solid;}
+.why-card h3{font-family:var(--font-head);font-size:1.06rem;font-weight:800;letter-spacing:-0.025em;margin-bottom:10px;}
+.why-card p{color:var(--text2);font-size:0.87rem;line-height:1.75;}
+
+/* ─── TEAM ─── */
+#team{background:var(--bg);}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.team-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r16);overflow:hidden;transition:all 0.25s;cursor:pointer;}
+.team-card:hover{border-color:rgba(var(--accentRGB),0.3);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.team-avatar{width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.team-avatar-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:24px 24px;}
+.avatar-icon{position:relative;z-index:1;width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;border:2px solid;}
+.team-info{padding:20px;}
+.team-info h4{font-family:var(--font-head);font-size:1rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px;}
+.team-role{font-size:0.78rem;color:var(--accent2);font-weight:600;font-family:var(--font-head);margin-bottom:12px;}
+.team-bio{font-size:0.83rem;color:var(--text2);line-height:1.65;margin-bottom:16px;}
+.team-social{display:flex;gap:8px;}
+.team-social a{width:30px;height:30px;border-radius:var(--r8);background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:0.72rem;text-decoration:none;transition:all 0.2s;}
+.team-social a:hover{background:rgba(var(--accentRGB),0.15);border-color:rgba(var(--accentRGB),0.3);color:var(--accent2);}
+
+/* ─── TIMELINE / VALUES ─── */
+#values{background:var(--bg2);}
+.val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.val-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r16);padding:32px;transition:all 0.25s;text-align:center;}
+.val-card:hover{border-color:rgba(var(--accentRGB),0.3);transform:translateY(-4px);}
+.val-num{font-family:var(--font-head);font-size:3rem;font-weight:900;letter-spacing:-0.06em;background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;line-height:1;}
+.val-card h3{font-family:var(--font-head);font-size:1.1rem;font-weight:800;letter-spacing:-0.025em;margin-bottom:10px;}
+.val-card p{color:var(--text2);font-size:0.87rem;line-height:1.75;}
+
+/* ─── CTA ─── */
+#cta-sec{padding:0 32px 100px;}
+.cta-box{max-width:1280px;margin:0 auto;background:linear-gradient(135deg,rgba(var(--accentRGB),0.15),rgba(6,182,212,0.08));border:1px solid rgba(var(--accentRGB),0.2);border-radius:var(--r32);padding:80px 60px;text-align:center;position:relative;overflow:hidden;}
+.cta-box::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:40px 40px;}
+.cta-box .tag-pill{margin-bottom:20px;}
+.cta-box h2{font-family:var(--font-head);font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-0.04em;margin-bottom:16px;position:relative;}
+.cta-box p{color:var(--text2);font-size:1rem;max-width:520px;margin:0 auto 40px;line-height:1.8;position:relative;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;}
+.btn-white{background:#fff;color:#0f172a;font-weight:700;}
+.btn-white:hover{background:#f0f4ff;transform:translateY(-2px);}
+.btn-glass{background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(8px);}
+.btn-glass:hover{background:rgba(255,255,255,0.18);transform:translateY(-2px);}
+
+/* ─── FOOTER ─── */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 32px 36px;}
+.footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px;}
+.footer-brand p{color:var(--text3);font-size:0.88rem;line-height:1.75;margin:16px 0 24px;}
+.f-socials{display:flex;gap:10px;}
+.f-socials a{width:36px;height:36px;border-radius:var(--r8);background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:0.85rem;text-decoration:none;transition:all 0.2s;}
+.f-socials a:hover{background:rgba(var(--accentRGB),0.15);border-color:rgba(var(--accentRGB),0.3);color:var(--accent2);}
+.f-col h4{font-family:var(--font-head);font-size:0.8rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:16px;}
+.f-col ul{list-style:none;}
+.f-col ul li{margin-bottom:10px;}
+.f-col ul li a{color:var(--text2);text-decoration:none;font-size:0.88rem;transition:color 0.2s;}
+.f-col ul li a:hover{color:var(--accent2);}
+.footer-btm{max-width:1280px;margin:0 auto;border-top:1px solid var(--border);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-btm p{font-size:0.84rem;color:var(--text3);}
+
+/* ─── SCROLL TOP ─── */
+#scroll-top{position:fixed;bottom:104px;right:24px;width:44px;height:44px;border-radius:var(--r8);background:var(--card);border:1px solid var(--border2);color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;opacity:0;pointer-events:none;z-index:500;}
+#scroll-top.vis{opacity:1;pointer-events:auto;}
+#scroll-top:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+/* ─── CHATBOT ─── */
+.chatbot-toggle{position:fixed;bottom:24px;right:24px;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#4338ca);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;box-shadow:0 8px 32px rgba(var(--accentRGB),0.5);z-index:600;transition:all 0.25s;}
+.chatbot-toggle:hover{transform:scale(1.1);}
+.chatbot-toggle .badge{position:absolute;top:4px;right:4px;width:12px;height:12px;border-radius:50%;background:var(--green);border:2px solid var(--bg);animation:pulse 2s ease infinite;}
+.chatbot-window{position:fixed;bottom:96px;right:24px;width:340px;background:var(--card);border:1px solid var(--border2);border-radius:var(--r24);box-shadow:var(--shadow-lg);z-index:600;overflow:hidden;display:none;flex-direction:column;}
+.chatbot-window.open{display:flex;}
+.chat-header{background:linear-gradient(135deg,var(--accent),#4338ca);padding:18px 20px;display:flex;align-items:center;gap:12px;}
+.chat-av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.95rem;flex-shrink:0;}
+.chat-head-info .name{font-family:var(--font-head);font-weight:800;font-size:0.95rem;color:#fff;}
+.chat-head-info .status{font-size:0.72rem;color:rgba(255,255,255,0.75);display:flex;align-items:center;gap:5px;}
+.chat-head-info .status::before{content:'';width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block;}
+.chat-close{margin-left:auto;background:rgba(255,255,255,0.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.8rem;transition:background 0.2s;}
+.chat-close:hover{background:rgba(255,255,255,0.25);}
+.chat-msgs{padding:16px;display:flex;flex-direction:column;gap:12px;max-height:300px;overflow-y:auto;flex:1;}
+.chat-msgs::-webkit-scrollbar{width:3px;}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--border2);border-radius:99px;}
+.msg{display:flex;gap:8px;align-items:flex-end;}
+.msg.user{flex-direction:row-reverse;}
+.msg-av{width:28px;height:28px;border-radius:50%;background:rgba(var(--accentRGB),0.2);border:1px solid rgba(var(--accentRGB),0.3);display:flex;align-items:center;justify-content:center;color:var(--accent2);font-size:0.7rem;flex-shrink:0;}
+.msg-bubble{max-width:220px;padding:10px 14px;border-radius:16px;font-size:0.84rem;line-height:1.55;}
+.msg.bot .msg-bubble{background:var(--bg3);color:var(--text);border-radius:4px 16px 16px 16px;}
+.msg.user .msg-bubble{background:linear-gradient(135deg,var(--accent),#4338ca);color:#fff;border-radius:16px 16px 4px 16px;}
+.typing-indicator{display:flex;gap:4px;align-items:center;padding:2px 0;}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--text3);animation:bounce 1.2s ease infinite;}
+.dot:nth-child(2){animation-delay:0.2s;}
+.dot:nth-child(3){animation-delay:0.4s;}
+@keyframes bounce{0%,60%,100%{transform:translateY(0);}30%{transform:translateY(-6px);}}
+.chat-quick{padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px;}
+.quick-btn{background:var(--bg3);border:1px solid var(--border2);color:var(--text2);border-radius:99px;padding:5px 12px;font-size:0.76rem;font-weight:600;cursor:pointer;transition:all 0.18s;font-family:var(--font-body);}
+.quick-btn:hover{background:rgba(var(--accentRGB),0.12);border-color:rgba(var(--accentRGB),0.3);color:var(--accent2);}
+.chat-input-area{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--border);}
+.chat-input{flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r8);padding:9px 14px;color:var(--text);font-size:0.85rem;font-family:var(--font-body);outline:none;transition:border-color 0.2s;}
+.chat-input:focus{border-color:var(--accent);}
+.chat-send{width:36px;height:36px;border-radius:var(--r8);background:var(--accent);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0;transition:all 0.2s;}
+.chat-send:hover{background:#4f52d9;}
+
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.3);}}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1024px){
+  .wwa-grid{grid-template-columns:1fr;gap:48px;}
+  .mv-grid{grid-template-columns:1fr;}
+  
+  .footer-grid{grid-template-columns:1fr 1fr;gap:40px;}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta-d{display:none;}
+  .ham{display:flex;}
+  .stats-row{grid-template-columns:repeat(2,1fr);gap:0;}
+  .stat-item{padding:24px;border-bottom:1px solid var(--border);}
+  .stat-item:nth-child(2n){border-right:none;}
+  .why-grid{grid-template-columns:1fr;}
+  .val-grid{grid-template-columns:1fr;}
+  .team-grid{grid-template-columns:repeat(2,1fr);}
+  .cta-box{padding:48px 28px;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-btm{flex-direction:column;text-align:center;}
+  .page-hero-inner h1{font-size:2.6rem;}
+}
+@media(max-width:480px){
+  .team-grid{grid-template-columns:1fr;}
+  .chatbot-window{width:calc(100vw - 32px);right:16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAVBAR -->
+<nav id="nav">
+  <div class="nav-inner">
+   <a href="#" class="nav-logo">
+  <span class="logo-name">Ysify Solutions</span>
+</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="service.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="process.html">Process</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-actions nav-cta-d">
+      <button class="theme-toggle" id="themeBtn" title="Toggle theme"><i class="fa-solid fa-sun" id="themeIcon"></i></button>
+      <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Get in Touch</a>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <button class="theme-toggle" id="themeBtnMob" title="Toggle theme" style="display:none;"><i class="fa-solid fa-sun" id="themeIconMob"></i></button>
+      <button class="ham" id="ham"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mob-menu" id="mob">
+  <a href="index.html">Home</a>
+  <a href="about.html" class="active">About</a>
+  <a href="service.html">Services</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="process.html">Process</a>
+  
+  <a href="contact.html" style="color:var(--accent);font-weight:700;">Contact Us →</a>
+</div>
+
+<!-- PAGE HERO / BANNER -->
+<section id="page-hero">
+  <div class="hero-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="hero-grid-bg"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>About Us</span>
+    </div>
+    <div class="tag-pill"><i class="fa-solid fa-users"></i> Our Story</div>
+    <h1>We Are <span class="g-text">Ysify Solutions</span></h1>
+    <p>A team focused on building AI-powered systems, web applications, and automation solutions that help businesses grow faster and operate smarter.</p>
+    <div class="hero-tags">
+      <span class="hero-tag" style="background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.25);color:var(--accent2)"><i class="fa-solid fa-map-pin" style="margin-right:5px"></i>Surat, Gujarat, India</span>
+      <span class="hero-tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.25);color:#34d399"><i class="fa-solid fa-circle" style="margin-right:5px;font-size:0.5rem;vertical-align:middle"></i>Available for Projects</span>
+      <span class="hero-tag" style="background:rgba(6,182,212,0.1);border-color:rgba(6,182,212,0.25);color:var(--cyan)"><i class="fa-solid fa-calendar" style="margin-right:5px"></i>Founded 2025</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-item fi">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Customer Support</div>
+      </div>
+      <div class="stat-item fi">
+        <div class="stat-num">99%</div>
+        <div class="stat-label">Client Satisfaction</div>
+      </div>
+      <div class="stat-item fi">
+        <div class="stat-num">AI</div>
+        <div class="stat-label">Focused Solutions</div>
+      </div>
+      <div class="stat-item fi">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Automation Running</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHO WE ARE -->
+<section id="who-we-are" class="section">
+  <div class="container">
+    <div class="wwa-grid">
+      <div class="wwa-vis fi">
+        <div class="wwa-img">
+          <div class="wwa-img-grid"></div>
+          <div class="wwa-img-inner">
+            <div class="mini-stat"><div class="n">100%</div><div class="l">Customer Support</div></div>
+            <div class="mini-stat"><div class="n">99%</div><div class="l">Satisfaction</div></div>
+            <div class="mini-stat"><div class="n">AI</div><div class="l">Focused Systems</div></div>
+            <div class="mini-stat"><div class="n">100%</div><div class="l">Custom Solutions</div></div>
+          </div>
+        </div>
+        <div class="exp-badge">
+          <div class="n">Since 2025</div>
+<div class="l">Building Smart Systems</div>
+        </div>
+      </div>
+      <div class="wwa-text fi">
+        <div class="tag-pill"><i class="fa-solid fa-building"></i> Who We Are</div>
+        <h2>Focused on <span class="g-text">Building Smart Systems</span></h2>
+        <p>Ysify Solutions was founded with a clear vision — to help businesses grow using AI, automation, and scalable web systems. We focus on building practical solutions that solve real business problems.</p>
+        <p>We don’t just develop software — we design intelligent systems that automate workflows, improve efficiency, and support long-term business growth.</p>
+        <div class="feat-list">
+          <div class="feat-item"><div class="feat-check"><i class="fa-solid fa-check"></i></div><span>AI-powered automation and business systems</span></div>
+          <div class="feat-item"><div class="feat-check"><i class="fa-solid fa-check"></i></div><span>Clean, scalable and performance-focused development</span></div>
+          <div class="feat-item"><div class="feat-check"><i class="fa-solid fa-check"></i></div><span>Solutions designed for real business use cases</span></div>
+          <div class="feat-item"><div class="feat-check"><i class="fa-solid fa-check"></i></div><span>Ongoing support and long-term collaboration</span></div>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Work With Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VISION -->
+<!-- MISSION & VISION -->
+<section id="mission-vision" class="section">
+  <div class="container">
+    <div class="sh">
+      <div class="tag-pill"><i class="fa-solid fa-compass"></i> Our Direction</div>
+      <h2>Mission & <span class="g-text">Vision</span></h2>
+      <p>The purpose behind everything we build — focused on real business impact.</p>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-card accent fi">
+        <div class="mv-icon" style="background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2);color:var(--accent2)"><i class="fa-solid fa-bullseye"></i></div>
+        <h3>Our Mission</h3>
+        <p>To help businesses grow using AI-powered systems, automation, and scalable web solutions that reduce manual work and improve efficiency.</p>
+        <p style="margin-top:14px;color:var(--text2);font-size:0.95rem;line-height:1.8;">We focus on building practical solutions that solve real business problems and deliver measurable results.</p>
+      </div>
+      <div class="mv-card cyan fi">
+        <div class="mv-icon" style="background:rgba(6,182,212,0.1);border-color:rgba(6,182,212,0.2);color:var(--cyan)"><i class="fa-solid fa-eye"></i></div>
+        <h3>Our Vision</h3>
+        <p>To become a trusted AI and automation partner for growing businesses — helping them scale faster with smart, efficient, and future-ready systems.</p>
+        <p style="margin-top:14px;color:var(--text2);font-size:0.95rem;line-height:1.8;">We aim to build technology that simplifies operations and supports long-term business growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<!-- WHY CHOOSE US -->
+<section id="why-us" class="section">
+  <div class="container">
+    <div class="sh">
+      <div class="tag-pill"><i class="fa-solid fa-star"></i> Why Ysify</div>
+      <h2>What Makes Us <span class="g-text">Different</span></h2>
+      <p>Focused on delivering real business results through AI, automation, and scalable systems.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fi">
+        <div class="why-icon" style="background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2);color:var(--accent2)"><i class="fa-solid fa-brain"></i></div>
+        <h3>AI-First Approach</h3>
+        <p>We focus on building intelligent systems that automate processes and improve business efficiency, not just basic software.</p>
+      </div>
+      <div class="why-card fi">
+        <div class="why-icon" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.2);color:#10b981"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Fast Execution</h3>
+        <p>We build and deliver systems quickly without compromising quality, helping businesses move faster and stay ahead.</p>
+      </div>
+      <div class="why-card fi">
+        <div class="why-icon" style="background:rgba(6,182,212,0.1);border-color:rgba(6,182,212,0.2);color:var(--cyan)"><i class="fa-solid fa-diagram-project"></i></div>
+        <h3>Automation Focus</h3>
+        <p>Our solutions are designed to reduce manual work, streamline operations, and save time across your business.</p>
+      </div>
+      <div class="why-card fi">
+        <div class="why-icon" style="background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.2);color:var(--amber)"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Business-Oriented Solutions</h3>
+        <p>We understand business needs and build systems that increase productivity, improve conversion, and support growth.</p>
+      </div>
+      <div class="why-card fi">
+        <div class="why-icon" style="background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);color:var(--pink)"><i class="fa-solid fa-handshake"></i></div>
+        <h3>Long-Term Support</h3>
+        <p>We work as a long-term partner, providing support, updates, and improvements as your business grows.</p>
+      </div>
+      <div class="why-card fi">
+        <div class="why-icon" style="background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2);color:var(--accent2)"><i class="fa-solid fa-star"></i></div>
+        <h3>Client Satisfaction</h3>
+        <p>We focus on delivering quality work and maintaining strong relationships with our clients through clear communication and reliable results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- TEAM -->
+<section id="team" class="section">
+  <div class="container">
+    <div class="sh">
+      <div class="tag-pill"><i class="fa-solid fa-user"></i> Founder</div>
+      <h2>Meet the <span class="g-text">Founder</span></h2>
+      <p>Driven by a passion for building AI-powered systems and solving real business problems.</p>
+    </div>
+    <div class="team-grid" style="display:flex;justify-content:center;">
+  
+  <div class="team-card fi" style="max-width:550px;width:100%;">
+    
+<div class="team-avatar" style="height:400px;overflow:hidden;border-radius:12px;">
+      <img src="../assets/images/image1.jpeg" alt="Yashvi Savaliya" 
+ style="width:100%;height:100%;object-fit:cover;">
+    </div>
+        <div class="team-info">
+          <h4>Yashvi Savaliya</h4>
+          <div class="team-role">Founder & AI Agent Developer</div>
+          <div class="team-bio">
+            Building AI-powered automation systems, web applications, and business solutions using Python, .NET, and modern technologies. Focused on creating practical systems that help businesses grow faster and work smarter.
+          </div>
+          <div class="team-social">
+            <a href="https://www.linkedin.com/in/yashvi-savaliya-904a60353/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/ysifysolutions/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-solid fa-globe"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<!-- VALUES -->
+<section id="values" class="section">
+  <div class="container">
+    <div class="sh">
+      <div class="tag-pill"><i class="fa-solid fa-heart"></i> Core Values</div>
+      <h2>What We <span class="g-text">Stand For</span></h2>
+      <p>The principles that guide how we build systems and work with clients.</p>
+    </div>
+    <div class="val-grid">
+      <div class="val-card fi">
+        <div class="val-num">01</div>
+        <h3>Honest Work</h3>
+        <p>We keep things simple and transparent — clear communication, realistic timelines, and no false promises.</p>
+      </div>
+      <div class="val-card fi">
+        <div class="val-num">02</div>
+        <h3>Quality Focus</h3>
+        <p>We build clean, scalable systems that perform well and are designed for long-term use.</p>
+      </div>
+      <div class="val-card fi">
+        <div class="val-num">03</div>
+        <h3>Business Thinking</h3>
+        <p>We focus on solving real business problems, not just building features that don’t create value.</p>
+      </div>
+      <div class="val-card fi">
+        <div class="val-num">04</div>
+        <h3>Continuous Learning</h3>
+        <p>We constantly explore new tools, AI technologies, and better ways to build smarter systems.</p>
+      </div>
+      <div class="val-card fi">
+        <div class="val-num">05</div>
+        <h3>Client Trust</h3>
+        <p>We build strong relationships by delivering what we promise and supporting clients long-term.</p>
+      </div>
+      <div class="val-card fi">
+        <div class="val-num">06</div>
+        <h3>Real Impact</h3>
+        <p>Our goal is simple — create systems that save time, improve efficiency, and help businesses grow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<!-- CTA -->
+<section id="cta-sec">
+  <div class="cta-box fi">
+    <div class="tag-pill"><i class="fa-solid fa-rocket"></i> Let's Build Together</div>
+    <h2>Ready to Automate & Scale Your Business?</h2>
+    <p>Let’s discuss how Ysify Solutions can help you build AI-powered systems and grow faster with smart automation.</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn btn-white"><i class="fa-solid fa-paper-plane"></i> Start a Project</a>
+      <a href="portfolio.html" class="btn btn-glass"><i class="fa-solid fa-eye"></i> See Our Work</a>
+    </div>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">
+        <span class="logo-name">Ysify Solutions</span>
+      </a>
+      <p>We build AI-powered systems, web applications, and automation solutions that help businesses grow faster and operate smarter.</p>
+      <div class="f-socials">
+        <a href="https://www.linkedin.com/in/yashvi-savaliya-904a60353" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://x.com/YashviSavaliya" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://github.com/yashvi36" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.instagram.com/ysifysolutions/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="process.html">Our Process</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">AI Automation</a></li>
+        <li><a href="services.html">AI Agents</a></li>
+        <li><a href="services.html">Web Applications</a></li>
+        <li><a href="services.html">Business Automation</a></li>
+        <li><a href="services.html">Custom Software</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@ysify.in"><i class="fa-solid fa-envelope" style="margin-right:7px;color:var(--accent2)"></i>info@ysify.in</a></li>
+        <li><a href="tel:+919904230962"><i class="fa-solid fa-phone" style="margin-right:7px;color:var(--accent2)"></i>+91 99042 30962</a></li>
+        <li><a href="#"><i class="fa-solid fa-location-dot" style="margin-right:7px;color:var(--accent2)"></i>Surat, Gujarat, India</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <p>© 2026 <span style="color:var(--accent2)">Ysify Solutions</span>. All rights reserved.</p>
+    <p>Owned by Yashvi Savaliya</p>
+  </div>
+</footer>
+
+<!-- SCROLL TOP -->
+<button id="scroll-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<!-- AI CHATBOT -->
+<button class="chatbot-toggle" id="chatToggle">
+  <i class="fa-solid fa-comment-dots" id="chatIcon"></i>
+  <div class="badge"></div>
+</button>
+<div class="chatbot-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-av"><i class="fa-solid fa-robot"></i></div>
+    <div class="chat-head-info">
+      <div class="name">Ysify AI Assistant</div>
+      <div class="status">Online — Ready to help</div>
+    </div>
+    <button class="chat-close" id="chatClose"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="chat-msgs" id="chatMsgs">
+    <div class="msg bot">
+      <div class="msg-av"><i class="fa-solid fa-robot"></i></div>
+      <div class="msg-bubble">👋 Hi! I'm Ysify AI, Ysify Solutions' AI assistant. How can I help you today?</div>
+    </div>
+  </div>
+  <div class="chat-quick" id="quickBtns">
+    <button class="quick-btn" onclick="quickSend('Our services')">Our services</button>
+    <button class="quick-btn" onclick="quickSend('Get a quote')">Get a quote</button>
+    <button class="quick-btn" onclick="quickSend('Technologies we use')">Tech stack</button>
+    <button class="quick-btn" onclick="quickSend('Contact the team')">Contact</button>
+  </div>
+  <div class="chat-input-area">
+    <input class="chat-input" id="chatInput" placeholder="Type a message..." type="text"/>
+    <button class="chat-send" id="chatSendBtn"><i class="fa-solid fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<script>
+// ─── CURSOR ───
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx-6+'px';cursor.style.top=my-6+'px';});
+function animRing(){rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;ring.style.left=rx-18+'px';ring.style.top=ry-18+'px';requestAnimationFrame(animRing);}
+animRing();
+document.querySelectorAll('a,button,.team-card,.why-card,.val-card,.mv-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.transform='scale(2)';ring.style.transform='scale(1.5)';});
+  el.addEventListener('mouseleave',()=>{cursor.style.transform='scale(1)';ring.style.transform='scale(1)';});
+});
+
+// ─── THEME ───
+let dark=true;
+function applyTheme(d){
+  document.documentElement.setAttribute('data-theme',d?'dark':'light');
+  const icons=document.querySelectorAll('#themeIcon,#themeIconMob');
+  icons.forEach(i=>{i.className=d?'fa-solid fa-sun':'fa-solid fa-moon';});
+}
+document.getElementById('themeBtn').addEventListener('click',()=>{dark=!dark;applyTheme(dark);});
+document.getElementById('themeBtnMob').addEventListener('click',()=>{dark=!dark;applyTheme(dark);});
+window.addEventListener('resize',()=>{document.getElementById('themeBtnMob').style.display=window.innerWidth<768?'flex':'none';});
+document.getElementById('themeBtnMob').style.display=window.innerWidth<768?'flex':'none';
+
+// ─── NAVBAR ───
+const nav=document.getElementById('nav');
+const scrollTop=document.getElementById('scroll-top');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>50);
+  scrollTop.classList.toggle('vis',window.scrollY>400);
+});
+scrollTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+// ─── HAMBURGER ───
+const ham=document.getElementById('ham');
+const mob=document.getElementById('mob');
+ham.addEventListener('click',()=>mob.classList.toggle('open'));
+mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mob.classList.remove('open')));
+
+// ─── FADE IN ───
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:0.1});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+
+// ─── CHATBOT ───
+const chatToggle=document.getElementById('chatToggle');
+const chatWindow=document.getElementById('chatWindow');
+const chatClose=document.getElementById('chatClose');
+const chatMsgs=document.getElementById('chatMsgs');
+const chatInput=document.getElementById('chatInput');
+const chatSendBtn=document.getElementById('chatSendBtn');
+const chatIcon=document.getElementById('chatIcon');
+const quickBtns=document.getElementById('quickBtns');
+let chatOpen=false;
+chatToggle.addEventListener('click',()=>{chatOpen=!chatOpen;chatWindow.classList.toggle('open',chatOpen);chatIcon.className=chatOpen?'fa-solid fa-xmark':'fa-solid fa-comment-dots';});
+chatClose.addEventListener('click',()=>{chatOpen=false;chatWindow.classList.remove('open');chatIcon.className='fa-solid fa-comment-dots';});
+const botResponses={'our services':"We offer 6 core services: **Web Development**, **Mobile Apps**, **Cloud & DevOps**, **AI & ML**, **Cybersecurity**, and **UI/UX Design**. Which one interests you most?",'get a quote':"I'd be happy to help you get a quote! 🎉\n\nPlease head to our **Contact** section and fill out the form. Our team typically responds within 2 business hours.",'technologies we use':"Our stack includes React, Next.js, Node.js, Python, AWS, GCP, Docker, Kubernetes, TensorFlow, and much more. What's your project tech requirement?",'contact':"You can reach us at:\n📧 hello@nexacore.io\n📞 +1 (123) 456-7890\n\nOr scroll down to fill out our contact form — we'd love to chat!",'contact the team':"You can reach us at:\n📧 hello@nexacore.io\n📞 +1 (123) 456-7890\n\nOr scroll down to fill out our contact form — we'd love to chat!",'tech stack':"Our full-stack expertise covers React, Vue, Angular, Next.js on the frontend, Node.js, Python, Go on the backend, and AWS/GCP/Azure for cloud. What tech are you considering?",'about':"NexaCore was founded in 2012 and has grown into a 50+ person team of senior engineers, designers, and strategists. We've delivered 200+ projects across 40+ countries with a 98% satisfaction rate!"};
+function getReply(msg){
+  const lower=msg.toLowerCase();
+  for(const key in botResponses){if(lower.includes(key))return botResponses[key];}
+  if(lower.includes('hello')||lower.includes('hi')||lower.includes('hey'))
+  return "Hello 👋 I'm Yashvi from Ysify Solutions. How can I help you today?";
+
+if(lower.includes('price')||lower.includes('cost')||lower.includes('budget'))
+  return "Project cost depends on your requirement 👍\n\nSimple websites start from ₹5k–₹15k, and automation or custom systems vary based on complexity.\n\nShare your requirement and I’ll guide you properly.";
+
+if(lower.includes('time')||lower.includes('timeline')||lower.includes('long'))
+  return "Timeline depends on project type ⏱️\n\n• Basic website: 3–7 days\n• Advanced website / system: 2–4 weeks\n• Automation / AI solution: depends on complexity\n\nI’ll give exact timeline after understanding your requirement.";
+
+if(lower.includes('team')||lower.includes('people')||lower.includes('who'))
+  return "I’m the founder of Ysify Solutions 👨‍💻\n\nI personally handle development, automation, and client communication to ensure quality work.";
+if(lower.includes('whatsapp'))
+  return "You can directly message me on WhatsApp:\n👉 https://wa.me/919904230962";
+
+return "Tell me your requirement in short 👍\n\nOr contact me directly:\n📧 info@ysify.in\n📞 +91 99042 30962";}
+
+function addMsg(text,isUser){
+  const div=document.createElement('div');
+  div.className=`msg ${isUser?'user':'bot'}`;
+  div.innerHTML=`${!isUser?'<div class="msg-av"><i class="fa-solid fa-robot"></i></div>':''}<div class="msg-bubble">${text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>')}</div>`;
+  chatMsgs.appendChild(div);chatMsgs.scrollTop=chatMsgs.scrollHeight;
+}
+function showTyping(){
+  const div=document.createElement('div');div.className='msg bot typing-msg';
+  div.innerHTML='<div class="msg-av"><i class="fa-solid fa-robot"></i></div><div class="msg-bubble"><div class="typing-indicator"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>';
+  chatMsgs.appendChild(div);chatMsgs.scrollTop=chatMsgs.scrollHeight;return div;
+}
+function sendMsg(text){
+  if(!text.trim())return;
+  quickBtns.style.display='none';
+  addMsg(text,true);
+  const t=showTyping();
+  setTimeout(()=>{t.remove();addMsg(getReply(text),false);},900+Math.random()*600);
+}
+chatSendBtn.addEventListener('click',()=>{sendMsg(chatInput.value);chatInput.value='';});
+chatInput.addEventListener('keydown',e=>{if(e.key==='Enter'){sendMsg(chatInput.value);chatInput.value='';}});
+function quickSend(t){sendMsg(t);}
+</script>
+</body>
+</html>
