@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">Article — Ysify Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0d0f1a;
+      --bg2: #13151f;
+      --surface: #1a1d2e;
+      --border: rgba(255,255,255,0.08);
+      --text: #e2e4ef;
+      --text2: #9499b0;
+      --text3: #6b7080;
+      --accent: #1D9E75;
+      --accent-light: #5DCAA5;
+      --purple: #7F77DD;
+      --red: #e74c3c;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── PROGRESS BAR ── */
+    #progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--purple));
+      z-index: 999;
+      transition: width 0.08s linear;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      background: rgba(13,15,26,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.2px;
+    }
+
+    .logo span { color: var(--accent-light); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-right a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-right a:hover { color: var(--text); }
+
+    .nav-btn {
+      background: var(--accent) !important;
+      color: #fff !important;
+      padding: 8px 18px;
+      border-radius: 7px;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+    }
+    .nav-btn:hover { opacity: 0.88; }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 90px 2rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    /* ── ARTICLE ── */
+    .article-main {}
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      color: var(--text3);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a { color: var(--accent-light); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    .article-category {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      background: rgba(29,158,117,0.1);
+      border: 1px solid rgba(93,202,165,0.2);
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 1.2rem;
+    }
+
+    .article-title {
+      font-family: 'Merriweather', serif;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.3px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 13px;
+      color: var(--text3);
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--text3); }
+
+    .reading-time {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Cover image */
+    .article-cover {
+      width: 100%;
+      aspect-ratio: 16/7;
+      border-radius: 10px;
+      margin-bottom: 2.2rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .article-cover .cover-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cover-icon {
+      opacity: 0.25;
+    }
+
+    /* Article body */
+    .article-body {
+      font-family: 'Merriweather', serif;
+      font-size: 17px;
+      line-height: 1.9;
+      color: var(--text);
+    }
+
+    .article-body p {
+      margin-bottom: 1.6rem;
+      font-weight: 300;
+    }
+
+    .article-body h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 2.5rem 0 1rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .article-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--accent-light);
+      margin: 2rem 0 0.8rem;
+    }
+
+    .article-body ul, .article-body ol {
+      padding-left: 1.6rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .article-body li {
+      margin-bottom: 0.6rem;
+      font-weight: 300;
+    }
+
+    .article-body blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 2rem 0;
+      padding: 1rem 1.5rem;
+      background: rgba(29,158,117,0.06);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--text2);
+    }
+
+    .article-body strong {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .article-body .highlight-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem 1.6rem;
+      margin: 2rem 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    /* Tags */
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--text2);
+      background: var(--surface);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .tag:hover { border-color: var(--accent); color: var(--accent-light); }
+
+    /* Share */
+    .share-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .share-label {
+      font-size: 13px;
+      color: var(--text3);
+      margin-right: 4px;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      padding: 7px 16px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text2);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .share-btn:hover { border-color: var(--accent); color: var(--accent-light); }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+    }
+
+    .sidebar-section {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-title {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text3);
+      margin-bottom: 1.1rem;
+    }
+
+    /* Table of contents */
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    .toc-list a {
+      font-size: 13.5px;
+      color: var(--text2);
+      text-decoration: none;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 4px 0;
+      transition: color 0.2s;
+      line-height: 1.5;
+    }
+
+    .toc-list a::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      border: 1.5px solid var(--text3);
+      flex-shrink: 0;
+      margin-top: 5px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .toc-list a:hover { color: var(--accent-light); }
+    .toc-list a:hover::before { border-color: var(--accent); background: var(--accent); }
+    .toc-list a.active { color: var(--accent-light); }
+    .toc-list a.active::before { border-color: var(--accent); background: var(--accent); }
+
+    /* Related articles */
+    .related-card {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .related-card:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-card:hover { opacity: 0.75; }
+
+    .related-thumb {
+      width: 50px;
+      height: 40px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .related-info .related-cat {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent-light);
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .related-info .related-title {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.4;
+      font-weight: 400;
+    }
+
+    /* Newsletter box */
+    .newsletter-box input {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 10px 14px;
+      color: var(--text);
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 8px;
+      outline: none;
+    }
+    .newsletter-box input:focus { border-color: var(--accent); }
+    .newsletter-box input::placeholder { color: var(--text3); }
+
+    .newsletter-box button {
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .newsletter-box button:hover { background: #0F6E56; }
+
+    /* ── BACK TO BLOG ── */
+    .back-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text2);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .back-btn:hover { border-color: var(--accent); color: var(--accent-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text3);
+    }
+
+    footer a { color: var(--accent-light); text-decoration: none; }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .article-main { animation: fadeUp 0.5s ease both; }
+    .sidebar { animation: fadeUp 0.5s 0.15s ease both; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .page-wrap {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 80px 1.2rem 3rem;
+      }
+      .sidebar { position: static; }
+      .article-title { font-size: 24px; }
+      .nav-right .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress -->
+<div id="progress"></div>
+
+<!-- Nav -->
+<nav>
+  <a href="index.html" class="logo">Ysify <span>Solutions</span></a>
+  <div class="nav-right">
+    <a href="index.html">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#contact" class="nav-btn">Get In Touch</a>
+  </div>
+</nav>
+
+<!-- Main Layout -->
+<div class="page-wrap">
+
+  <!-- ── LEFT: Article ── -->
+  <article class="article-main">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="blog.html">Blog</a>
+      <span>›</span>
+      <span id="bc-title">Article</span>
+    </div>
+
+    <!-- Category badge -->
+    <div class="article-category" id="art-category">AI AUTOMATION</div>
+
+    <!-- Title -->
+    <h1 class="article-title" id="art-title">
+      How AI Automation Can Save 20+ Hours Every Week
+    </h1>
+
+    <!-- Meta -->
+    <div class="article-meta">
+      <span id="art-date">April 25, 2025</span>
+      <span class="dot"></span>
+      <span class="reading-time">⏱ <span id="art-readtime">5 min read</span></span>
+      <span class="dot"></span>
+      <span id="art-author">Ysify Solutions Team</span>
+    </div>
+
+    <!-- Cover Image -->
+    <div class="article-cover" id="art-cover">
+      <div class="cover-inner" id="cover-inner" style="background: linear-gradient(135deg, #6B5CE7, #9B8AFF);">
+        <svg class="cover-icon" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+          <rect x="3" y="8" width="18" height="12" rx="2"/>
+          <circle cx="9" cy="14" r="1.5"/>
+          <circle cx="15" cy="14" r="1.5"/>
+          <path d="M8 8V6a4 4 0 018 0v2"/>
+          <path d="M12 20v2"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Article Body -->
+    <div class="article-body" id="art-body">
+
+      <p>
+        In today's fast-paced business environment, time is the most valuable resource. Yet most businesses waste dozens of hours every week on tasks that could be automated — from responding to emails and updating spreadsheets to managing social media and generating reports.
+      </p>
+
+      <p>
+        AI automation is no longer a luxury reserved for large enterprises. Small and mid-sized businesses can now access powerful automation tools that work around the clock, handle repetitive tasks with zero errors, and free up your team to focus on what actually matters.
+      </p>
+
+      <h2 id="h-what-is">What Is AI Automation?</h2>
+
+      <p>
+        AI automation refers to the use of artificial intelligence to perform tasks that previously required human effort. Unlike traditional automation (which follows fixed rules), AI automation can adapt, learn from patterns, and handle complex, judgment-based work.
+      </p>
+
+      <blockquote>
+        "The businesses that will win the next decade are not the ones with the most employees — they're the ones with the most intelligent systems running quietly in the background."
+      </blockquote>
+
+      <h2 id="h-where">Where Are Businesses Losing Time?</h2>
+
+      <p>Here are the most common time-drains we see across our clients:</p>
+
+      <ul>
+        <li><strong>Email sorting and response drafting</strong> — 3–5 hours/week</li>
+        <li><strong>Manual data entry and CRM updates</strong> — 4–6 hours/week</li>
+        <li><strong>Scheduling and follow-up messages</strong> — 2–3 hours/week</li>
+        <li><strong>Report generation and analytics</strong> — 3–4 hours/week</li>
+        <li><strong>Social media posting and monitoring</strong> — 2–4 hours/week</li>
+        <li><strong>Customer support (FAQs and tickets)</strong> — 5–8 hours/week</li>
+      </ul>
+
+      <p>
+        That's easily <strong>19 to 30 hours per week</strong> — nearly a full-time employee's worth of work — that can be handled by AI systems.
+      </p>
+
+      <h2 id="h-how">How AI Automation Works in Practice</h2>
+
+      <h3>1. Intelligent Email Management</h3>
+      <p>
+        AI tools can read incoming emails, categorize them, draft replies in your tone, and even send pre-approved responses automatically. Tools like AI-powered Gmail extensions or custom GPT integrations can cut email time by 70%.
+      </p>
+
+      <h3>2. Automated Lead Follow-Up</h3>
+      <p>
+        When a new lead fills out your contact form, an AI system can immediately send a personalized response, update your CRM, schedule a follow-up call, and notify your sales team — all without any human touching it.
+      </p>
+
+      <div class="highlight-box">
+        💡 <strong>Real Example:</strong> One of our clients — a 3-person consulting firm — was spending 2 hours daily on follow-up emails. After automation, their response time dropped from 6 hours to under 3 minutes, and their conversion rate increased by 34%.
+      </div>
+
+      <h3>3. Report Generation</h3>
+      <p>
+        Instead of manually pulling data from multiple platforms every Monday morning, AI can aggregate your analytics, sales figures, and KPIs into a clean report — delivered to your inbox automatically.
+      </p>
+
+      <h2 id="h-start">How to Get Started</h2>
+
+      <p>You don't need a tech team to start automating. Here's a simple 3-step process:</p>
+
+      <ol>
+        <li><strong>Audit your week</strong> — Write down every repetitive task you or your team does regularly.</li>
+        <li><strong>Prioritize by time cost</strong> — Which tasks take the most hours but require the least creative thinking?</li>
+        <li><strong>Automate one at a time</strong> — Start with the highest-impact task and build from there.</li>
+      </ol>
+
+      <p>
+        The goal isn't to replace your team — it's to give them back their time so they can focus on strategy, creativity, and growth.
+      </p>
+
+      <h2 id="h-conclusion">Final Thoughts</h2>
+
+      <p>
+        AI automation is not the future — it's the present. Businesses that adopt intelligent systems today will operate faster, leaner, and more profitably than those that don't. The 20+ hours you save every week can be reinvested into sales, product development, or simply a better work-life balance.
+      </p>
+
+      <p>
+        Ready to see where automation can save your business time? <a href="index.html#contact" style="color: var(--accent-light); text-decoration: underline;">Get in touch with us</a> and we'll map out a custom automation plan for your business.
+      </p>
+
+    </div>
+
+    <!-- Tags -->
+    <div class="article-tags">
+      <span class="tag">AI Automation</span>
+      <span class="tag">Productivity</span>
+      <span class="tag">Business Growth</span>
+      <span class="tag">Time Management</span>
+      <span class="tag">AI Tools</span>
+    </div>
+
+    <!-- Share -->
+    <div class="share-row">
+      <span class="share-label">Share:</span>
+      <a class="share-btn" href="#" onclick="shareArticle('twitter')">
+        𝕏 Twitter
+      </a>
+      <a class="share-btn" href="#" onclick="shareArticle('linkedin')">
+        in LinkedIn
+      </a>
+      <a class="share-btn" href="#" onclick="copyLink()">
+        🔗 Copy Link
+      </a>
+    </div>
+
+  </article>
+
+  <!-- ── RIGHT: Sidebar ── -->
+  <aside class="sidebar">
+
+    <!-- Table of Contents -->
+    <div class="sidebar-section">
+      <div class="sidebar-title">Table of Contents</div>
+      <ul class="toc-list">
+        <li><a href="#h-what-is" class="toc-link">What Is AI Automation?</a></li>
+        <li><a href="#h-where" class="toc-link">Where Are Businesses Losing Time?</a></li>
+        <li><a href="#h-how" class="toc-link">How It Works in Practice</a></li>
+        <li><a href="#h-start" class="toc-link">How to Get Started</a></li>
+        <li><a href="#h-conclusion" class="toc-link">Final Thoughts</a></li>
+      </ul>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="sidebar-section">
+      <div class="sidebar-title">Related Articles</div>
+
+      <a href="article.html?id=2" class="related-card">
+        <div class="related-thumb" style="background:linear-gradient(135deg,#0AA4A4,#1FCFBF)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5">
+            <path d="M9 5C9 3.9 9.9 3 11 3h2c1.1 0 2 .9 2 2v0c1.1 0 2 .9 2 2v1c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V10c0-1.1.9-2 2-2V7c0-1.1.9-2 2-2z"/>
+          </svg>
+        </div>
+        <div class="related-info">
+          <div class="related-cat">AI Agents</div>
+          <div class="related-title">AI Agents: The Future of Sales and Customer Support</div>
+        </div>
+      </a>
+
+      <a href="article.html?id=3" class="related-card">
+        <div class="related-thumb" style="background:linear-gradient(135deg,#27AE60,#1D9E75)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+            <polyline points="16 7 22 7 22 13"/>
+          </svg>
+        </div>
+        <div class="related-info">
+          <div class="related-cat">Business Growth</div>
+          <div class="related-title">Why Businesses Are Moving Towards Automation Systems</div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Newsletter -->
+    <div class="sidebar-section">
+      <div class="sidebar-title">Stay Updated</div>
+      <p style="font-size:13px; color:var(--text2); margin-bottom:1rem; line-height:1.6;">Get the latest insights on AI and automation delivered to your inbox.</p>
+      <div class="newsletter-box">
+        <input type="email" placeholder="Your email address" id="email-input"/>
+        <button onclick="subscribeEmail()">Subscribe →</button>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- Back to Blog -->
+<div class="back-section">
+  <a href="index.html" class="back-btn">← Back to All Articles</a>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 <a href="index.html">Ysify Solutions</a>. All rights reserved.</p>
+</footer>
+
+<script>
+  // ── Reading Progress Bar ──
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const pct = total > 0 ? (scrolled / total) * 100 : 0;
+    document.getElementById('progress').style.width = pct + '%';
+  });
+
+  // ── URL Params — load dynamic article data ──
+  // Usage: article.html?id=1&title=My+Title&category=AI+AUTOMATION&date=April+25,+2025&readtime=5+min+read&color=purple
+  const params = new URLSearchParams(window.location.search);
+
+  const articles = {
+    "1": {
+      title: "How AI Automation Can Save 20+ Hours Every Week",
+      category: "AI AUTOMATION",
+      date: "April 25, 2025",
+      readtime: "5 min read",
+      author: "Ysify Solutions Team",
+      coverGradient: "linear-gradient(135deg, #6B5CE7, #9B8AFF)",
+      coverIcon: `<svg class="cover-icon" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1"><rect x="3" y="8" width="18" height="12" rx="2"/><circle cx="9" cy="14" r="1.5"/><circle cx="15" cy="14" r="1.5"/><path d="M8 8V6a4 4 0 018 0v2"/><path d="M12 20v2"/></svg>`
+    },
+    "2": {
+      title: "AI Agents: The Future of Sales and Customer Support",
+      category: "AI AGENTS",
+      date: "April 20, 2025",
+      readtime: "6 min read",
+      author: "Ysify Solutions Team",
+      coverGradient: "linear-gradient(135deg, #0AA4A4, #1FCFBF)",
+      coverIcon: `<svg class="cover-icon" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1"><path d="M9 5C9 3.9 9.9 3 11 3h2c1.1 0 2 .9 2 2v0c1.1 0 2 .9 2 2v1c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V10c0-1.1.9-2 2-2V7c0-1.1.9-2 2-2z"/></svg>`
+    },
+    "3": {
+      title: "Why Businesses Are Moving Towards Automation Systems",
+      category: "BUSINESS GROWTH",
+      date: "April 15, 2025",
+      readtime: "4 min read",
+      author: "Ysify Solutions Team",
+      coverGradient: "linear-gradient(135deg, #27AE60, #1D9E75)",
+      coverIcon: `<svg class="cover-icon" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>`
+    }
+  };
+
+  const id = params.get('id');
+  if (id && articles[id]) {
+    const a = articles[id];
+    document.getElementById('art-title').textContent = a.title;
+    document.getElementById('art-category').textContent = a.category;
+    document.getElementById('art-date').textContent = a.date;
+    document.getElementById('art-readtime').textContent = a.readtime;
+    document.getElementById('art-author').textContent = a.author;
+    document.getElementById('bc-title').textContent = a.title.substring(0, 30) + '...';
+    document.getElementById('cover-inner').style.background = a.coverGradient;
+    document.getElementById('cover-inner').innerHTML = a.coverIcon;
+    document.title = a.title + ' — Ysify Solutions';
+  }
+
+  // ── TOC Active Highlight ──
+  const headings = document.querySelectorAll('h2[id]');
+  const tocLinks = document.querySelectorAll('.toc-link');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    headings.forEach(h => {
+      if (window.scrollY >= h.offsetTop - 120) current = h.id;
+    });
+    tocLinks.forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+    });
+  });
+
+  // ── Share Functions ──
+  function shareArticle(platform) {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.getElementById('art-title').textContent);
+    const links = {
+      twitter: `https://twitter.com/intent/tweet?text=${title}&url=${url}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`
+    };
+    window.open(links[platform], '_blank');
+  }
+
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      alert('Link copied!');
+    });
+  }
+
+  function subscribeEmail() {
+    const email = document.getElementById('email-input').value;
+    if (!email || !email.includes('@')) {
+      alert('Please enter a valid email.');
+      return;
+    }
+    alert('Thanks for subscribing, ' + email + '!');
+    document.getElementById('email-input').value = '';
+  }
+</script>
+
+</body>
+</html>
