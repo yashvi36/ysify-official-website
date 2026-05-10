@@ -300,6 +300,67 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 32p
   .footer-grid{grid-template-columns:1fr;}
   .chatbot-window{width:calc(100vw - 32px);right:16px;}
 }
+.hero-stats{
+    display:flex;
+    gap:24px;
+    margin-top:16px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.h-stat{
+    text-align:center;
+    min-width:120px;
+}
+
+.h-stat-val{
+    font-family:var(--font-head);
+    font-size:2rem;
+    font-weight:900;
+    letter-spacing:-0.04em;
+}
+
+.h-stat-val span{
+    color:var(--accent);
+}
+
+.h-stat-label{
+    font-size:0.75rem;
+    color:var(--text3);
+    font-weight:600;
+    margin-top:2px;
+}
+
+.h-stat-div{
+    width:1px;
+    background:var(--border2);
+    align-self:stretch;
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+
+    .hero-stats{
+        gap:18px;
+        justify-content:center;
+    }
+
+    .h-stat{
+        width:45%;
+    }
+
+    .h-stat-div{
+        display:none;
+    }
+
+    .h-stat-val{
+        font-size:1.7rem;
+    }
+
+    .h-stat-label{
+        font-size:0.7rem;
+    }
+}
 </style>
 </head>
 <body>
