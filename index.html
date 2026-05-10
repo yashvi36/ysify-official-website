@@ -422,6 +422,76 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 32p
 @media(max-width:480px){
   .hero-btns .btn,.cta-btns .btn{width:100%;justify-content:center;}
 }
+@media (max-width: 768px) {
+  .about-grid{
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about-vis{
+    order: 1;
+  }
+
+  .about-text{
+    order: 2;
+  }
+
+  .about-img{
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+
+  .about-img-inner{
+    padding: 18px;
+    gap: 10px;
+  }
+
+  .mini-stat{
+    padding: 14px 12px;
+  }
+
+  .mini-stat .n{
+    font-size: 1.3rem;
+  }
+
+  .mini-stat .l{
+    font-size: 0.68rem;
+  }
+
+  .exp-badge{
+    right: 12px;
+    bottom: 12px;
+    left: auto;
+    transform: none;
+    padding: 14px 16px;
+    border-radius: 18px;
+  }
+
+  .exp-badge .n{
+    font-size: 1.35rem;
+  }
+
+  .exp-badge .l{
+    font-size: 0.62rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-img-inner{
+    grid-template-columns: 1fr 1fr;
+    padding: 14px;
+  }
+
+  .mini-stat{
+    padding: 12px 10px;
+  }
+
+  .exp-badge{
+    padding: 12px 14px;
+    right: 10px;
+    bottom: 10px;
+  }
+}
 </style>
 </head>
 <body>
@@ -623,7 +693,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 32p
         </div>
         <div class="exp-badge">
          <div class="n">Since 2025</div>
-<div class="l">Building Smart Systems</div>
+        <div class="l">Building Smart Systems</div>
         </div>
       </div>
       <div class="about-text fi">
