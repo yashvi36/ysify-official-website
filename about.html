@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>About Us — NexaCore</title>
+<title>Ysify Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -308,6 +308,61 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 32p
   .team-grid{grid-template-columns:1fr;}
   .chatbot-window{width:calc(100vw - 32px);right:16px;}
 }
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .about-vis {
+    width: 100%;
+  }
+
+  .about-img {
+    width: 100%;
+    aspect-ratio: auto !important;
+    min-height: auto;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  .about-img-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 0;
+  }
+
+  .mini-stat {
+    padding: 14px 10px;
+  }
+
+  .mini-stat .n {
+    font-size: 1.25rem;
+  }
+
+  .mini-stat .l {
+    font-size: 0.66rem;
+  }
+
+  .exp-badge {
+    position: relative !important;
+    inset: auto !important;
+    width: 100%;
+    margin-top: 14px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .exp-badge .n {
+    font-size: 1.35rem;
+  }
+
+  .exp-badge .l {
+    font-size: 0.68rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -517,7 +572,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 32p
   <div class="team-card fi" style="max-width:550px;width:100%;">
     
 <div class="team-avatar" style="height:400px;overflow:hidden;border-radius:12px;">
-      <img src="image1.jpeg" alt="Yashvi Savaliya" 
+      <img src="../assets/images/image1.jpeg" alt="Yashvi Savaliya" 
  style="width:100%;height:100%;object-fit:cover;">
     </div>
         <div class="team-info">
