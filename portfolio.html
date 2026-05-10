@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Portfolio — NexaCore</title>
+<title>Ysify Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -312,6 +312,47 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 32p
   .footer-grid{grid-template-columns:1fr;}
   .footer-bottom{flex-direction:column;text-align:center;}
 }
+/* DESKTOP DEFAULT */
+#themeBtnMob,
+.ham{
+  display:none;
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 16px;
+  }
+
+  .nav-links,
+  .nav-actions{
+    display:none;
+  }
+
+  #themeBtnMob,
+  .ham{
+    display:flex;
+  }
+
+  #themeBtnMob{
+    width:44px;
+    height:44px;
+    align-items:center;
+    justify-content:center;
+    border:none;
+    background:transparent;
+    color:var(--text);
+  }
+
+  .logo-name{
+    font-size:1.2rem;
+    white-space:nowrap;
+  }
+}
 </style>
 </head>
 <body>
@@ -337,7 +378,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 32p
     </div>
     <div class="nav-actions">
       <button class="theme-toggle" id="themeBtn"><i class="fa-solid fa-sun" id="themeIcon"></i></button>
-      <a href="#" class="btn btn-outline" style="display:flex;">Schedule Call</a>
+     
       <a href="#" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Get a Quote</a>
     </div>
     <button class="theme-toggle" id="themeBtnMob" style="display:none;"><i class="fa-solid fa-sun" id="themeIconMob"></i></button>
